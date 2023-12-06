@@ -1,0 +1,42 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function dimeVuelto(entrega){       
+    
+    var precio = 1000;
+    var respuesta = function () { 
+        return entrega-precio; 
+    } //Aquí el closure
+
+    return respuesta;
+
+}
+
+ 
+
+function ejemplo(){            
+    
+    var calculo = dimeVuelto(1600);           
+    alert('Su vuelto es: '+calculo());
+    
+/*Si volvemos a llamar a "calculo1" nos traeria de nuevo el mismo resultado ya que JS guarda
+el mismo dentro de la funcion anidada, y "calculo" lo que hace es alamacenar una referencia a 
+esa funcion anónima anidada dentro de "dimeVuelto".
+*/
+    alert("Volvemos a llamar a calculo y sigue valiendo: "+ dimeVuelto(1500));
+}
+
+ 
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+
+</body> </html>

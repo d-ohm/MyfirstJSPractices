@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {background-color:white; font-family: sans-serif;}
+
+.boton{padding:15px; width: 200px;  text-align:center; clear:both;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+</style>
+
+<script type="text/javascript">
+
+function ejemploBuclesConContinue() {
+
+var contador = 0;
+
+//La sentencia continue da lugar a que se salte a la siguiente iteración del bucle sin ejecutar las instrucciones existentes después de la sentencia continue. Si escribimos continue; la sentencia afecta al bucle más próximo a donde se encuentre la sentencia. Si escribimos continue nombreDeLaEtiquetaDelBucle; la sentencia afecta a aquel bucle que hayamos referenciado.
+
+var msg = 'Bucle do con ejemplo de continue: \n';
+
+do {
+
+if (contador>5 && contador < 12) {contador +=1; continue;}
+
+msg = msg + '\t Contando... '+ (contador+1) + '\n';
+
+//Otras instrucciones aquí...
+
+contador +=1;
+
+} while (contador < 20);
+
+msg = msg + 'Bucles etiquetados y uso de continue referenciado: \n'
+
+// En JavaScript las sentencias pueden llevar un nombre o etiqueta que los identifique y que sirvan para hacer referencia a ellos en algún momento. Por ejemplo los bucles podemos etiquetarlos como vemos en el siguiente ejemplo:
+
+bucleExterior: for(var i=0; i<2; i++) {
+
+                bucleInterior: for (var j=0; j<5; j++){
+
+                comprobarSijvale2: if (j==2) {continue bucleExterior;}
+
+                msg = msg + 'i vale ' + i + ', j vale ' + j + ', i*j =  ' + (i*j) +'\n';
+
+                }
+
+}
+
+msg = msg + 'Bucles sin etiquetar y continue sin referenciar: \n'
+
+bucleExterior: for(var i=0; i<2; i++) {
+
+                bucleInterior: for (var j=0; j<5; j++){
+
+                if (j==2) {continue;}
+
+                msg = msg + 'i vale ' + i + ', j vale ' + j + ', i*j =  ' + (i*j) +'\n';
+
+                }
+
+}
+
+alert (msg);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Portal web aprenderaprogramar.com</h1>
+
+<h2>Didáctica y divulgación de la programación</h2>
+
+<h3 class="boton" onclick="ejemploBuclesConContinue()">Pulsa aquí</h3>
+
+</body>
+
+</html>

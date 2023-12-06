@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> Curso JS - Test Edicion Tablas</title> <meta charset="utf-8">
+<script type="text/javascript" src="FuncionTestEdicTabla.js">
+	
+</script>
+</head>
+<body">
+<h1 id="contenedor">Test de Edicion de Tablas</h1>
+<center>
+	<link href="normalize.css" rel="stylesheet"/>
+  <link href="CSSTestEdicTablas.css" rel="stylesheet"/>
+
+<table border="1" cellspacing="0" cellpadding="7"><caption>Contenido nutricional por cada 100 g de alimento.</caption>
+<tbody>
+<tr id="filaCabecera">
+<th style="text-align: center;">Alimento</th>
+<th style="text-align: center;">Calorías (kCal)</th>
+<th style="text-align: center;">Grasas (g)</th>
+<th style="text-align: center;">Proteína (g)</th>
+<th style="text-align: center;">Carbohidratos (g)</th>
+<th style="text-align: center;">Acciones</th>
+</tr>
+<tr class="fila">
+<td class="alimento" style="text-align: center;">Arándano</td>
+<td class="calorias" style="text-align: center;">49</td>
+<td class="grasas" style="text-align: center;">0.2</td>
+<td class="proteina" style="text-align: center;">0.4</td>
+<td class="carbohidratos" style="text-align: center;">12.7</td>
+<td class="acciones" style="text-align: center;"><span onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+<tr class="fila">
+<td class="alimento" style="text-align: center;">Plátano</td>
+<td class="calorias" style="text-align: center;">90</td>
+<td class="grasas" style="text-align: center;">0.3</td>
+<td class="proteina" style="text-align: center;">1.0</td>
+<td class="carbohidratos" style="text-align: center;">23.5</td>
+<td class="acciones" style="text-align: center;"><span onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+<tr class="fila ">
+<td class="alimento" style="text-align: center;">Cereza</td>
+<td class="calorias" style="text-align: center;">46</td>
+<td class="grasas" style="text-align: center;">0.4</td>
+<td class="proteina" style="text-align: center;">0.9</td>
+<td class="carbohidratos" style="text-align: center;">10.9</td>
+<td class="acciones" style="text-align: center;"><span onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+<tr class="fila">
+<td class="alimento" style="text-align: center;">Fresa</td>
+<td class="calorias" style="text-align: center;">37</td>
+<td class="grasas" style="text-align: center;">0.5</td>
+<td class="proteina" style="text-align: center;">0.8</td>
+<td class="carbohidratos" style="text-align: center;">8.3</td>
+<td class="acciones" style="text-align: center;"><span onclick="transformarEnEditable(this)">Editar</span></td>
+</tr>
+</tbody>
+</table>
+<div id="botones"> </div>
+</center>
+</body>
+</html>

@@ -1,0 +1,58 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+*{font-family: verdana, sans-serif;}
+
+.nodoNuevo{background-color: black; color:white; width:100px;
+
+text-align:center; padding:20px; font-size:32px; float:left;}
+
+</style>
+
+<script type="text/javascript">
+
+ 
+
+function mostrarNumConRetardo() {
+
+for(var i=1; i<11; i++){ setTimeout(crearNodo(i), 1000); }
+
+}
+
+ 
+
+function crearNodo(numero) {
+
+var nodoHijo = document.createElement("div");
+
+nodoHijo.className="nodoNuevo"; nodoHijo.innerHTML = ''+numero;
+
+document.body.appendChild(nodoHijo);
+
+}
+//Este codigo no hace lo que queriamos, si EjemClousuresApps2JS.html
+
+ /*Podemos pensar en tratar de arreglarlo con la siguiente modificación:
+
+function mostrarNumConRetardo() {
+
+for(var i=1; i<11; i++){ setTimeout(crearNodo(i), 1000*i); }
+}
+
+ 
+
+ 
+
+Pero esto no funciona. ¿Por qué? Porque el valor de i que se está pasando a setTimeout no es el valor de i en cada bucle, sino la referencia a la variable i cuando setTimeout se ha ejecutado y el bucle ha terminado, y esa referencia no tiene valor (ya que el bucle ha terminado).*/
+
+</script>
+
+</script></head>
+
+<body onload="mostrarNumConRetardo()" >
+
+<div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+</body></html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function Persona (nombre) { this.nombre = nombre || 'Nombre desconocido';
+
+this.saludar = function () {alert('Hola, soy ' + this.nombre);}
+
+}
+
+Persona.prototype.definicion = 'Ser humano';
+
+function Profesor (institucionAcademica) { this.institucionAcademica = institucionAcademica || 'Institución desconocida'; }
+
+Profesor.prototype = new Persona();
+
+function ProfesorInterino(nombre, institucionAcademica, mesesContrato) { Persona.call(this, nombre); Profesor.call(this, institucionAcademica); this.mesesContrato = mesesContrato || 0;}
+
+ProfesorInterino.prototype = new Profesor();
+
+function ProfesorTitular(nombre, institucionAcademica, añosTrabajados) {  Persona.call(this, nombre); Profesor.call(this, institucionAcademica); this.añosTrabajados = añosTrabajados || 0;}
+
+ProfesorTitular.prototype = new Profesor();
+
+function ejemploObjetos() {
+
+var profesorTitular1 = new ProfesorTitular('Juan', 'Universidad de León', 8);
+
+alert ('El nombre de profesorTitular1 es ' + profesorTitular1.nombre);
+
+profesorTitular1.saludar();
+
+
+var msg = 'El profesor titular creado tiene nombre ' + profesorTitular1.nombre + ', trabaja en '
+
+msg = msg + profesorTitular1.institucionAcademica + ', tiene ' + profesorTitular1.añosTrabajados + ' años trabajados';
+
+msg = msg + ' y definición de ' + profesorTitular1.definicion;
+
+alert(msg);
+
+profesorTitular1.saludar();
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="ejemploObjetos()">Pulsa acá </div>
+
+</body></html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+
+function Taxi (tipoMotor, numeroPasajeros, carga, velocidad) {
+
+this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
+
+this.carga = carga; this.velocidad = velocidad;
+
+}
+
+ 
+
+Taxi.prototype = { ruedas: 4, saludar: function() {
+
+alert('Hola soy un taxi de ' + this.ruedas + ' ruedas y ' +this.numeroPasajeros +' pasajeros');} }
+
+ 
+
+function ejemploObjetos() {
+
+var taxi1 = new Taxi(1, 6, 300, 90);
+
+taxi1.saludar();
+
+}
+//Codigo equivalente
+
+function Taxi (tipoMotor, numeroPasajeros, carga, velocidad) {
+
+this.tipoMotor = tipoMotor; this.numeroPasajeros = numeroPasajeros;
+
+this.carga = carga; this.velocidad = velocidad;
+
+}
+
+ //JS creo ya el objeto prototipo al crear la "clase" Taxi, por eso podemos darle propiedades y metodos.
+
+
+Taxi.prototype.ruedas = 6;
+
+Taxi.prototype.saludar = function() {
+
+alert('Hola soy un taxi de ' + this.ruedas + ' ruedas y ' +this.numeroPasajeros +' pasajeros');}
+
+ 
+
+function ejemploObjetos2() {
+
+var taxi1 = new Taxi(1, 8, 300, 90);
+
+taxi1.saludar();
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Prueba 1 </div>
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos2()"> Prueba 2 </div>
+
+</body>
+
+</html>

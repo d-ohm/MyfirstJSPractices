@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function Vegetal () { this.movilidad = 'Ser vivo sin movilidad';}
+
+
+function plantaCultivada () { this.nombreCientifico = 'desconocido'; }
+
+plantaCultivada.prototype = new Vegetal();
+
+function Hortaliza() { this.componentePrincipal = 'Agua';}
+
+Hortaliza.prototype = new plantaCultivada();
+
+Hortaliza.prototype.tipoHortaliza = 'indefinido';
+
+function zanahoria() { this.valorCalorico = '45 cal';}
+
+zanahoria.prototype = new Hortaliza();
+
+function lechuga() {this.valorCalorico = '31 cal';}
+
+lechuga.prototype = new Hortaliza();
+
+function tomate() {this.valorCalorico = '39 cal';}
+
+tomate.prototype = new Hortaliza();
+
+function nuevoObjeto() {
+
+var tomate1 = new tomate();
+
+alert ('tomate1 tiene la propiedad movilidad: ' + tomate1.movilidad);
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="nuevoObjeto()">Pulsa acá </div>
+
+</body></html>

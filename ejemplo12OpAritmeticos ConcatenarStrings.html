@@ -1,0 +1,41 @@
+<html> <head> <title>Curso JavaScript aprenderaprogramar.com</title> <meta charset="utf-8">
+
+<script type="text/javascript">
+
+function mostrarMensaje1() { 
+
+var adcon1, adcon2, adcon3;
+
+var cadenaTexto1; var cadenaTexto2; var cadenaTexto3; var espacioTxt = ' ';
+
+adcon1=3; adcon2 = 4; result = adcon1 + adcon2; alert ('Ahora result vale ' + result);
+
+adcon1= 'Amanecer'; adcon2 = ' cálido'; result = adcon1 + adcon2; alert ('Ahora result vale ' + result);
+
+cadenaTexto1 = 'Tomate'; cadenaTexto2 = 'frito'; cadenaTexto3 = cadenaTexto1+espacioTxt+cadenaTexto2;
+
+alert ('La concatenación del texto es: \"' + cadenaTexto3 +'\"');
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div>
+
+<p>Aquí un párrafo de texto situado antes de la imagen, dentro de un div contenedor</p>
+
+<img onclick="mostrarMensaje1()" src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto">
+
+<p onclick ="alert('Alerta JavaScript')" style="background-color:yellow;">Aquí otro párrafo de texto. JavaScript es un lenguaje utilizado para dotar de efectos dinámicos a las páginas web.
+
+</p>
+
+</div>
+
+</body>
+
+</html>

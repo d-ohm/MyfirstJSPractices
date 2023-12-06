@@ -1,0 +1,32 @@
+#contenedor {width:40%; margin: auto; text-align: center;}
+
+span {
+	color: dodgerblue;
+	cursor: pointer;
+ }
+
+span:visited {
+   color : darkviolet;
+ }
+
+span:hover {
+   color : aqua;
+ }
+
+span:active {
+   color : red;
+ }
+
+ input {
+ 	display: flex;
+ 	margin: auto;
+ 	justify-content: center;
+ 	align-items: center;
+ 	text-align: center;
+   border: none;
+ }
+
+ tr, td {
+ 	padding-left:  0; 
+ 	padding-right: 0;
+ }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html> 
+<head>
+	
+	<title>JS Ejercicio CreateNode ModOnclick</title>
+	<meta charset="utf-8">
+	<style>
+		body {font-family: sans-serif; text-align:center; }
+
+		div {border-style:solid;margin: 30px; padding:25px; display:block; background-color: lightblue;}
+
+		div div { margin: 0 0 0 0; padding: 5%;		}
+
+		.boton {padding:15px; width: 100px; text-align:center;    color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+		.boton:hover {background: rgb(66, 184, 221);}
+	</style>
+
+	<script type="text/javascript">
+
+	var contador = 1;
+
+function crearNodoAlFinal(anida) {
+
+var nodoPadre = document.getElementsByTagName('body');
+
+var nodoAlFinal = document.createElement("div");
+
+var textoAlFinal = document.createTextNode("nodo creado "+contador);
+
+nodoPadre[0].appendChild(nodoAlFinal);
+nodoAlFinal.appendChild(textoAlFinal);
+
+ nodoAlFinal.id ='divElementID'+contador;
+
+
+
+if (contador > 0) {
+nodoAlFinal.style.position = 'fixed';
+nodoAlFinal.style.bottom = '0';
+nodoAlFinal.style.right = '0';
+nodoAlFinal.style.width = '50%';
+nodoAlFinal.style.height = '10%';
+nodoAlFinal.style.border= '3px solid #73AD21';
+nodoAlFinal.style.overflow = 'auto';
+}
+
+if (anida) {
+	crearNodoAnidado();
+}
+
+contador = contador +1;
+
+function crearNodoAnidado() {
+
+	var nodoAnidado = document.createElement('div');
+
+ nodoAlFinal.appendChild(nodoAnidado);
+ nodoAnidado.appendChild(textoAlFinal);
+
+ nodoAnidado.id ='divAnElementID'+contador;
+
+
+if (contador%2 == 0) {nodoAnidado.style.backgroundColor = '#E9967A';}
+
+                else {nodoAnidado.style.backgroundColor = 'yellow'; }
+
+
+
+}
+
+}	
+
+	</script>
+
+</head>
+<body>
+
+	<div>
+		Curso JavaScript aprenderaprogramar.com
+	</div>
+
+	<p class="boton"  onclick="crearNodoAlFinal()">
+
+	Añadir al final </p>
+
+	<p class="boton"  onclick="crearNodoAlFinal(this)">
+
+	Anidar </p>
+
+</body>
+
+</html>

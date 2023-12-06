@@ -1,0 +1,42 @@
+ <html> <head><meta charset="utf-8"><style type="text/css"> input {margin:10px;} </style>
+
+<script>
+
+function validarPassword(password){
+
+  try  {
+
+    if(password.length < 5 ) {      throw "SHORT";    }else if(password.length > 10 ) {  throw "LONG";    }
+
+    alert("Password Validated!");
+
+  } catch(e) {
+
+    if(e == "SHORT"){  alert("Not enough characters in password!"); }
+
+    else if(e == "LONG"){ alert("Password contains too many characters!");   }
+
+  }finally{    document.miFormulario.password.value="";   }
+
+  alert("La revisión ha terminado.");
+
+}
+
+ </script>
+
+    </head>
+
+    <body>
+
+        <form name="miFormulario" onsubmit="validarPassword(document.getElementById('pass').value)" action="#" >
+
+            Nombre de usuario: <input type="text" name="campo1"><br>
+
+            Password: <input id="pass" type="password" name="password"><br>
+
+            <input type="submit" value="Comprobar" name="comprobar">
+
+        </form>
+
+    </body>
+</html>

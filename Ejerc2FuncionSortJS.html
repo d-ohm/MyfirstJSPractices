@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+
+	//Resuelto por otro alumno, no vimos localeCompare aun, por lo que no sabia esta resolucion.
+function sortArray2() {
+
+		msg="";
+		var MyArray=['Moto', 'soto', 'Abaco', 'abeja', 'Sapo', 'nieve', 'Zumba', 'barco'];
+				msg=msg+'Array Original : '+MyArray+'\n\n';
+				var ordenMayMin=MyArray.sort();
+				msg=msg+'Palabras ordenadas por codigo ASCII: '+ ordenMayMin+'\n\n';
+				var alfabetica=MyArray.sort(function(a,b){return a.localeCompare(b);});
+				msg=msg+'Palabras por orden alfabético : '+alfabetica+'\n\n';
+				alert(msg);
+		
+
+	}
+
+/*var palabra = 'Hola';
+
+var char = palabra.charCodeAt(0);
+
+char = char + 32;
+
+alert(char);*/ // Si esta suma se hubiese podido hacer con el for de abajo, lo hubiese resuelto sin el localeCompare
+
+
+/*var aCadena= MyArray.toString();
+
+alert(aCadena);
+
+var palabrasSeparadas = aCadena.split(',');
+
+for (var i=0; i<palabrasSeparadas.length; i++) {
+	// alert(char0);
+
+	var charN = palabrasSeparadas[i].charCodeAt(0);
+	 
+	alert(charN);	
+var nChar0 = String.fromCharCode(char0[i]);
+
+alert(nChar0)
+
+		palabrasSeparadas = palabrasSeparadas[i].replace(palabrasSeparadas[¡].charAt(0), nChar0[i]);
+		 
+		var msg = palabrasSeparadas[i]+', ';
+		alert(msg);
+		var miNArray = miNArray.push(palabrasSeparadas[i])
+	}*/ //Mi intento fallido de sumar 32 a charCodeAt[i]-*-
+
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="sortArray2()">Pulsa acá </div>
+
+</body></html>

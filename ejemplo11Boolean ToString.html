@@ -1,0 +1,59 @@
+<html>
+
+<head>
+
+<title>Curso JavaScript aprenderaprogramar.com</title> <meta charset="utf-8">
+
+<script type="text/javascript">
+
+function mostrarMensaje1() { 
+
+var a=1, b=2, c=3;
+
+var casado = true;
+
+var mayorDe25 = false;
+
+var texto1 = 'En un lugar de la Mancha...';
+
+//mayorDe25 = variableInexistente; //Genera un error y el código no se ejecuta
+
+alert ('La variable casado vale: ' + casado);
+
+alert ('La variable mayorDe25 vale: ' + mayorDe25);
+
+alert ('La variable casado vale (forzamos mostrar equivalente numérico): ' + casado*1);
+
+alert ('La variable mayorDe25 vale (forzamos mostrar equivalente numérico): ' + mayorDe25*1);
+
+alert ('La variable casado vale ahora: ' + casado);
+
+alert ('La suma de a, b y c vale: ' + (a+b+c));
+
+alert ('Operación sin sentido, obtenemos: ' + (texto1*1));
+
+alert ('Mostramos equivalente de texto de la variable casado: ' + casado.toString());
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div>
+
+<p>Aquí un párrafo de texto situado antes de la imagen, dentro de un div contenedor</p>
+
+<img onclick="mostrarMensaje1()" src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto">
+
+<p onclick ="alert('Alerta JavaScript')" style="background-color:yellow;">Aquí otro párrafo de texto. JavaScript es un lenguaje utilizado para dotar de efectos dinámicos a las páginas web.
+
+</p>
+
+</div>
+
+</body>
+
+</html>

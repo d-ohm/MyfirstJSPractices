@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+
+
+</style>
+
+<script type="text/javascript">
+
+
+var GestionDeUsuarios = {};
+
+Object.defineProperties(GestionDeUsuarios, {'nombre': {value: "", writable:true, enumerable:true, configurable:true}, 'id': {value: "", writable:true, enumerable:true, configurable:true}});
+
+	GestionDeUsuarios.preguntarNombre = function (){ GestionDeUsuarios.nombre = prompt('Introduzca su nombre: '); GestionDeUsuarios.id = prompt('Introduzca su Id: '); alert("Hola "+ GestionDeUsuarios.nombre +", Id: "+GestionDeUsuarios.id);}
+
+	GestionDeUsuarios.despedir = function() {alert("Hasta luego " +GestionDeUsuarios.nombre +", Id: " +GestionDeUsuarios.id);}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="GestionDeUsuarios.preguntarNombre()">Pulsa para ingresar</div>
+
+<div class="nodoRaiz" onclick="GestionDeUsuarios.despedir()">Pulsa aquí para salir</div>
+
+
+
+</body></html>

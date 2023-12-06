@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+div {border-style:solid; margin: 30px; padding:25px; height: 400px; width: 500px;  display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function ejeXY(eveXY){
+
+var tomox = eveXY.pageX;
+var tomoy = eveXY.pageY;
+
+
+
+document.getElementById('x').innerHTML = "Posición x: "+tomox;
+document.getElementById('y').innerHTML = "Posición y: "+tomoy;
+
+}
+
+function clearEveXY() {
+    document.getElementById('x').innerHTML = "Posición x:";
+    document.getElementById('y').innerHTML = "Posición y:";
+}
+
+
+window.onload = function () {
+
+document.getElementById('xy').onmousemove = ejeXY;
+document.getElementById('xy').onmouseout = clearEveXY;
+
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+        <div id="xy">
+            <p id="x">Posición x: </p>
+            <p id="y">Posición y: </p>         
+        </div>
+   
+
+
+
+</body></html>

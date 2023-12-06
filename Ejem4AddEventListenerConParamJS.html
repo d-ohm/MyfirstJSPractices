@@ -1,0 +1,182 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo2 aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> label{display:block;margin:5px;}</style>
+
+ <script type="text/javascript">
+
+// window.onload = function () {
+
+// var formularios = document.forms;     
+
+// for (var i=0; i<formularios.length;i++){
+
+//    for (var j=0; j<formularios[i].elements.length; j++){
+
+//    if (formularios[i].elements[j].type=='text' && j%2==0 ) {
+
+//                    formularios[i].elements[j].addEventListener('click', function() {cambiaColor('', 'yellow');});
+
+//    }
+
+//    else {       formularios[i].elements[j].addEventListener('click', function(){cambiaColor('', 'orange');});          }
+
+//    }
+
+// }             
+
+// }
+
+ 
+
+// function cambiaColor (elEvento, elColor) { alert(elEvento + '***'+elColor + ' - ' + this);
+
+// this.style.backgroundColor=elColor;
+// }
+
+/*¿Qué ocurre con este código? En primer lugar que dentro de la función anónima estamos creando un ámbito nuevo, y this ya no es el elememento html que recibe el evento. ¿Qué es entonces this? Como siempre que this no está definido en un ámbito, es el objeto window. Al invocar this.style.backgroundColor=elColor; obtenemos un error del tipo this.style is undefined porque al objeto window no le podemos aplicar estilos (ya que no es un elemento HTML). Además estamos perdiendo el objeto Event al pasar un argumento vacío. Activa la consola si no la tienes activada para poder ver los mensajes de error.*/
+
+/* Repasamos conceptos: this es el elemento HTML que nos interesa dentro de la función anónima que es ahora la manejadora del evento, pero ya no lo es en la función cambiaColor porque ésta ya no es la manejadora del evento, sino una función invocada por la manejadora del evento.
+
+Ahora la función manejadora del evento es la función anónima, por lo que si quisiéramos pasar el evento tendríamos que hacer algo así:*/
+
+//  window.onload = function () {
+
+// var formularios = document.forms;     
+
+// for (var i=0; i<formularios.length;i++){
+
+//    for (var j=0; j<formularios[i].elements.length; j++){
+
+//    if (formularios[i].elements[j].type=='text' && j%2==0 ) {
+
+//      formularios[i].elements[j].addEventListener('click', function(elEvento) {cambiaColor(elEvento, 'yellow');});
+
+//    }
+
+//    else { formularios[i].elements[j].addEventListener('click', function(elEvento){cambiaColor(elEvento, 'orange');});                }
+
+
+
+//    }
+
+// }             
+
+// }
+
+ 
+
+// function cambiaColor (elEvento, elColor) {
+
+// this.style.backgroundColor=elColor;
+
+// }
+/* Ahora estamos pasando el evento, pero todavía no hemos resuelto el problema de haber perdido la referencia al this.
+
+Podríamos pensar en intentar algo como esto:*/
+
+
+// window.onload = function () {
+
+//     var formularios = document.forms;     
+
+//     for (var i=0; i<formularios.length;i++){
+
+//        for (var j=0; j<formularios[i].elements.length; j++){
+
+//            if (formularios[i].elements[j].type=='text' && j%2==0 ) {
+
+//                formularios[i].elements[j].addEventListener('click', function(elEvento) {
+
+//                cambiaColor(elEvento, 'yellow', formularios[i].elements[j]);});
+
+//            }
+
+//            else { formularios[i].elements[j].addEventListener('click', function(elEvento){
+
+//            cambiaColor(elEvento, 'orange',formularios[i].elements[j]);}); 
+//             }
+
+//        }
+
+//     }             
+
+// }
+
+// function cambiaColor (elEvento, elColor, quienEsThis) {
+
+// quienEsThis.style.backgroundColor=elColor;
+
+// }
+/* Ahora nos enfrentamos a un error de tipo <<TypeError: formularios[i] is undefined>> porque la función anónima define un nuevo ámbito, independiente puesto que es un argumento de addEventListener y no una función anidada dentro de la función de respuesta a window.onload.
+
+Finalmente vamos a llegar a una solución válida que consiste en pasarle el this a la función cambiaColor. Escribe este código y comprueba sus resultados:*/
+ window.onload = function () {
+
+    var formularios = document.forms;     
+
+    for (var i=0; i<formularios.length;i++){
+
+       for (var j=0; j<formularios[i].elements.length; j++){
+
+           if (formularios[i].elements[j].type=='text' && j%2==0 ) {
+
+               formularios[i].elements[j].addEventListener('click', function(elEvento) {
+
+               cambiaColor(elEvento, 'yellow', this);});  
+
+           }
+
+           else { formularios[i].elements[j].addEventListener('click', function(elEvento){
+
+           cambiaColor(elEvento, 'orange', this);});             }
+
+       }
+
+    }             
+
+}
+
+ 
+
+function cambiaColor (elEvento, elColor, quienEsThis) {
+
+quienEsThis.style.backgroundColor=elColor;
+
+}
+/*
+
+¿PODEMOS MEJORAR?
+
+En el codigo que se ha propuesto como solución, cada vez que se añade un manejador de eventos a un elemento HTML estamos creando una función anónima. Esto puede resultar ineficiente. Más adelante estudiaremos cómo podemos mejorar este código para hacerlo más eficiente.*/
+
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<form name ="formularioContacto" method="get" action="accion1.html">
+
+<h2>Formulario de contacto</h2>
+
+<label>Nombre:<input id="nombreFormContacto" type="text" name="nombre" maxlength="4"/></label>
+
+<label>Apellidos:<input id="apellidosFormContacto" type="text" name="apellidos" /></label>
+
+<label><input id ="botonEnvio1" type="submit" value="Enviar"></label>
+
+</form>
+
+<form name ="formularioReclamacion" method="get" action="accion2.html">
+
+<h2>Formulario de reclamación</h2>
+
+<label>Motivo reclamación:<input id="motivoFormReclama" type="text" name="motivo" /></label>
+
+<label>Fecha del hecho:<input id="fechaFormReclama" type="text" name="fecha" /></label>
+
+<label><input id="botonEnvio2" type="submit" value="Enviar"></label>
+</form></body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+div p {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+
+var contador = 5;
+
+
+function mensP(){
+
+    var nodoP = document.querySelector("p"); 
+    
+
+    if(contador==0){
+        // window.location.assign('http://aprenderaprogramar.com');
+    }
+    //Caso base: fin de la recursion
+    else{
+        // setTimeout(function(x){ 
+        // return 
+        // function() {
+            nodoP.innerText = "Hemos cambiado de ubicación esta página. En breves momentos será redireccionado… "+contador;
+        // } 
+    // }(contador),100);
+    /*comento el setTimeout arriba porque asi entendi mejor como funciona el clousure mejor, aunque despues vi que no era necesario*/
+        contador-=1;
+         setTimeout( mensP,1000);}
+         // genero una recursion para rellamar mensP cada nuevo valor de la variable contador
+        }
+
+
+</script>
+
+</head>
+
+<body onclick="mensP()">
+
+<div>
+    <p> </p>
+
+</div>
+
+</body></html>

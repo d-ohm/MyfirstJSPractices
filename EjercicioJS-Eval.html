@@ -1,0 +1,42 @@
+<html> 
+<head>
+	
+	<title>JS Ej9</title>
+	<meta charset="utf-8">
+	<style>
+		.boton{padding:15px; width: 200px;  text-align: center; color: white; border-radius: 40px; background: rgb(202, 60, 60); display: inline-flex;}
+	</style>
+
+	<script type="text/javascript">
+		
+	function componer(sentido) {
+
+var accion = 'mover';
+
+var sobreElemento = 'Imagen';
+
+var haciaDonde = sentido;
+
+var llamada = accion + sobreElemento+'(\''+haciaDonde+'\')';
+
+alert ('La unión del texto genera ' + llamada);
+
+eval(llamada);
+
+}
+
+	</script>
+
+</head>
+<body>
+<div class="boton"  onclick="componer('adelante')">Adelante
+	</div>
+<div class="boton"  onclick="componer('atras')">Atras
+	</div>
+	
+
+	
+
+</body>
+
+</html>

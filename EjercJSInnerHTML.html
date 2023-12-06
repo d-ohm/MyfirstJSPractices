@@ -1,0 +1,74 @@
+<html>
+<head>
+<title> Curso JS</title> <meta charset="utf-8">
+<style type="text/css">
+#contenedor {width:40%; margin: auto; text-align: center;}
+#divprinc { text-align: center; position: relative; margin: 2% auto 2% auto; width: 35%; height: 30%; padding: 50px;  border: 1px solid black; }
+.primerdiv { font-size: 500%; position: absolute;  top: 0; left: 0;  display: flex;
+  justify-content: center; align-items: center; width: 49.5%; height: 49.5%; border: 1px solid black; 
+}
+.segundodiv { font-size: 500%; position: absolute;  top: 0 ; right: 0;  display: flex;
+  justify-content: center; align-items: center; width: 49.5%; height: 49.5%; border: 1px solid black;
+}
+.tercerdiv { font-size: 500%; position: absolute;  bottom: 0; left: 0;  display: flex;
+  justify-content: center; align-items: center; width: 49.5%; height: 49.5%; border: 1px solid black;
+}
+.cuartodiv { font-size: 500%; position: absolute; bottom: 0;  right: 0;  display: flex;
+  justify-content: center; align-items: center; width: 49.5%; height: 49.5%; border: 1px solid black;
+}
+#nuevoboton {padding:4%; width: 15%; margin: auto; text-align:  center; cursor: pointer; color: white; border-radius: 40px; background: rgb(202, 60, 10); clear: both;}
+#nuevoboton:hover {background: rgb(66, 184, 221);}
+</style>
+<script type="text/javascript">
+
+var cont = 0;
+
+	function avanzar() {
+
+	cont = cont += 1;
+
+var primerdiv = document.querySelector(".primerdiv");
+var segundodiv = document.querySelector(".segundodiv");
+var tercerdiv = document.querySelector(".tercerdiv");
+var cuartodiv = document.querySelector(".cuartodiv");
+
+
+if (cont == 1) {
+	primerdiv.style.fontSize= "200%";
+	primerdiv.style.backgroundColor = "black";
+	primerdiv.style.color ="white";
+	primerdiv.innerHTML = "El";
+}
+else if (cont == 2) {
+	segundodiv.style.fontSize= "220%";
+	segundodiv.innerHTML = "poder";
+}
+else if (cont == 3) {
+	tercerdiv.style.fontSize= "220%";
+	tercerdiv.innerHTML = "de";
+}
+else if (cont == 4) {
+	cuartodiv.style.fontSize= "200%";
+	cuartodiv.style.backgroundColor = "yellow";
+	cuartodiv.innerHTML = "JavaScript";
+}
+else if (cont > 4) {
+	alert("No es posible avanzar más");
+}
+}
+
+</script>
+</head>
+<body">
+<h1 id="contenedor">Ejercicio curso JavaScript</h1>
+<div id="divprinc"> 
+
+		<div class="primerdiv"> ? </div>
+		<div class="segundodiv"> ?  </div>
+		<div class="tercerdiv"> ? </div>
+		<div class="cuartodiv"> ? </div>
+	
+</div>
+<div id="nuevoboton" onclick="avanzar()">Avanzar</div>
+</body>
+</html>

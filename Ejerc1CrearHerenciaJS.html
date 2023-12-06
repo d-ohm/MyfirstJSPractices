@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function Persona (nombre, nacionalidad) { this.nombre = nombre 
+this.nacionalidad = nacionalidad;}
+Persona.prototype.mostrarNacionalidad = function() {alert('La nacionalidad del medico ' + this.nombre + ' es ' + this.nacionalidad);}
+function  Medico(centroTrabajo) { this.centroTrabajo = centroTrabajo}
+
+Medico.prototype = new Persona();
+
+function medicoEspecialista(nombre, nacionalidad, especialidad){ Persona.call(this, nombre, nacionalidad);  this.especialidad = especialidad;}
+
+medicoEspecialista.prototype = new Medico();
+
+function objEspecialista() { var unMedicoEspecialista = new medicoEspecialista('Alberto', 'Colombiana', 'Dermatologo');
+	unMedicoEspecialista.mostrarNacionalidad();}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="objEspecialista()">Pulsa acá </div>
+
+</body></html>

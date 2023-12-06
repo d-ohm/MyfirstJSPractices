@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+<style type="text/css">
+body {font-family: sans-serif; text-align:center; }
+div p {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+
+var contador = 5;
+
+function mensP(){
+    var nodoP = document.querySelector("p");     
+
+    if(contador==0){window.location.assign('http://aprenderaprogramar.com'); }
+    //Caso base: fin de la recursion, cambio locación
+    else{nodoP.innerText = "Hemos cambiado de ubicación esta página. En breves momentos será redireccionado… "+contador; 
+        contador-=1; setTimeout( mensP,1000);}
+    // genero una recursion para rellamar mensP cada nuevo valor de la variable contador usando temporizador setTimeout
+}
+</script>
+</head>
+<body onload="mensP()">
+<div>
+    <p> </p>
+</div>
+</body></html>

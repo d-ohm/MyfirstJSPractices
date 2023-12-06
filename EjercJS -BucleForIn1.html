@@ -1,0 +1,41 @@
+<html>
+<head>
+<title> Portal web - aprenderaprogramar.com </title> <meta charset="utf-8">
+<style type="text/css">
+	#contenedor {width:285px;margin: 40px auto; overflow:hidden;}
+
+#nuevoboton {padding:15px; width: 90px; clear: both;
+
+margin: 10px; cursor: pointer; color: white; border-radius: 40px; background: rgb(202, 60, 10);}
+
+ #nuevoboton:hover {background: rgb(66, 184, 221);}
+</style>
+<script type="text/javascript">
+
+	function ejercicioForIn() {
+
+var msga= [];
+var di =[];
+
+		for (i=0; i <=4; i++) {di[i] = prompt("Introduzca el dato "+[i]+": ");}
+
+	di = di.map(Number);
+
+
+		for (i in di) { msga[i] = " "+di[i]+" * 3= "+(di[i]*3);}
+alert("\n Multiplicamos por 3 los números introducidos: " + msga);
+}
+
+</script>
+</head>
+<body>
+<div id="contenedor">
+<p>Aquí un párrafo de texto situado antes de la imagen, dentro de un div contenedor</p>
+<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto">
+
+<div id="nuevoboton" onclick="ejercicioForIn()"> Nuevo Boton</div>
+
+
+</div>
+</body>
+</html>

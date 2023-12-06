@@ -1,0 +1,98 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejercicio aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> label{display:block;margin:5px;}</style>
+
+ <script type="text/javascript">
+     window.onload = function () {
+
+     var formularios = document.forms;
+        for (var i=0; i<formularios.length;i++){
+
+       for (var j=0; j<formularios[i].elements.length; j+=3){
+
+               formularios[i].elements[j].addEventListener('click', function(elEvento) {
+
+
+                // for (var i=0; i<;i++){
+
+                    // alert(elEvento);
+                // }
+
+    //     if(formularios[0].elements[i].type=='text' && i==0){             
+       
+    //                   formularios[0].elements[i].addEventListener('click', function(elEvento) {
+
+    //                     for (var g=1; g<=formularios[0].elements.length; g+3){}
+   
+                            cambiaColor(elEvento, 'yellow', this); });
+
+    //         }         
+
+    //         else if (formularios[0].elements[i].type=='text' && i==1){
+
+       
+    //                       formularios[0].elements[i].addEventListener('click', function(elEvento) {
+
+    //                     for (var k=2; k<=formularios[0].elements.length; k+3){
+       
+    //                         cambiaColor(elEvento, 'lightblue', this[k]);} });    
+    //         }
+
+    //         else if (formularios[0].elements[i].type=='text' && i==2) {              
+
+    //                       formularios[0].elements[i].addEventListener('click', function(elEvento) {
+
+    //                     for (var l=3; l<formularios[0].elements.length; l+3){  
+
+    //                         cambiaColor(elEvento, 'ligthgreen', this[l]);}  });
+ 
+    //         }  
+
+    // }
+
+
+           // });
+
+       }
+
+    }                   
+    
+}
+
+function cambiaColor (elEvento, elColor, quienEsThis) {
+
+    
+
+quienEsThis.style.backgroundColor=elColor;
+
+}
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<form name ="formularioContacto" method="get" action="accion1.html">
+
+<h2>Formulario de contacto</h2>
+
+<label>Nombre:<input id="nombreFormContacto" type="text" name="nombre" maxlength="4"/></label>
+
+<label>Apellidos:<input id="apellidosFormContacto" type="text" name="apellidos" /></label>
+
+<label>Domicilio:<input id="domicilioFormContacto" type="text" name="domicilio" /></label>
+
+<label>País:<input id="paisFormContacto" type="text" name="pais" /></label>
+
+<label>E-mail:<input id="emailFormContacto" type="text" name="email" /></label>
+
+<label>Teléfono:<input id="telefonoFormContacto" type="text" name="telefono" /></label>
+
+
+<label><input id ="botonEnvio1" type="submit" value="Enviar"></label>
+
+</form>
+</body></html>

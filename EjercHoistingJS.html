@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+// var x = 'Hola amigos'; // variable global
+
+function ejemplo(){
+
+var x = 'Hola amigos'; // Se cambia el ambito de la variable para eliminar el hoisting (ejercicio 'b')
+
+ alert( x ); // esperamos el valor global, solo funciona en el primer click si x es global debido al hoisting,
+ // y siempre si es local porque no hay hoisting
+
+ // var x; // comento esta linea porque no es necesario declarar nuevamente una variable para cambiar su valor dentro de su ambito
+
+ x = 'Saludos desde Costa Rica'; // redefinimos la variable en contexto local
+
+ alert( x );  // esperamos el nuevo valor local
+
+//  alert(x); //con este alert activo y apagando el primero declarado en el ambito de esta funcion, convierto al enterior en el primero en renderizarse, aplicando hoisting desde el primer alert
+
+}
+/*
+ a) Realiza una prueba pulsando en “Probar”. ¿Qué resultados obtienes? ¿Cómo se explican esos resultados? 
+ R: var x; dentro de la funcion hace hoisting e invalida la variable golbal
+
+b) Cambia el código y declara la variable x dentro de la función al mismo tiempo que la inicializas. 
+¿Qué resultados obtienes? ¿Cómo se explican esos resultados? 
+R: deja de hace hoisting, la varible cambia su valor dentro del ambito de la funcion
+
+c) De los dos casos anteriores ( a y b ). ¿En cuáles se produce hoisting: en el a), en el b) ó en ambos? 
+R: solo en el 'a'
+
+d) En este caso, ¿el hoisting está afectando a los resultados obtenidos? ¿Por qué? 
+¿Cuáles serían los resultados de ejecutar estos códigos si no existiera hoisting? 
+R: si, afecta solo en el caso de que no se declare e inicialice la variable 'x' dentro del ambito de la funcion, 
+de no exixstir el hoisting, el primer alert arrjaria el valor de 'x' asigando en el ambito global con cada clic.
+
+*/
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+</body></html>

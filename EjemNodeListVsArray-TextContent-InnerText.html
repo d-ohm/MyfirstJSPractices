@@ -1,0 +1,30 @@
+<html>
+<head>
+<title> Portal web - aprenderaprogramar.com </title> <meta charset="utf-8">
+<style type="text/css">
+#contenedor {width:285px; margin: auto; text-align: center;}
+.nuevo { padding: 50px; text-align: center;}
+#nuevoboton {padding:15px; width: 90px; margin: auto; text-align:  center; cursor: pointer; color: white; border-radius: 40px; background: rgb(202, 60, 10); clear: both;}
+#nuevoboton:hover {background: rgb(66, 184, 221);}
+</style>
+<script type="text/javascript">
+var nodoH1 = document.getElementsByTagName("h1");
+	function ejercicioSetGetInnerText() {
+		var nodoDiv = document.getElementsByTagName("div");
+		var msga= [];
+		var di =[];
+			for (i=0; i <=4; i++) {di[i] = prompt("Introduzca el dato "+[i]+": ");}
+		di = di.map(Number);
+
+			for (i in di) { msga[i] = "\n "+di[i]+"*3="+(di[i]*3);}
+
+		nodoDiv[0].childNodes[0].textContent = "\n Multiplicamos por 3 los números introducidos: " + msga;
+	}
+</script>
+</head>
+<body">
+<h1 id="contenedor">Ejercicio curso aprenderaprogramar.com</h1>
+<div class="nuevo"> </div>
+<div id="nuevoboton" onclick="ejercicioSetGetInnerText()">Click acá</div>
+</body>
+</html>

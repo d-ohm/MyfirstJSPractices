@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function Profesor (institucion) { this.institucion = institucion || 'Desconocida';
+
+this.salarioBase = 1200; }
+
+Profesor.prototype.saludar = function() {alert('Hola trabajo en '+ this.institucion + ' y mi salario base es '+this.salarioBase);}
+
+ 
+
+function ProfesorInterino(mesesContrato, institucion) { Profesor.call(this, institucion);
+
+this.mesesContrato = mesesContrato || -1;}
+
+ProfesorInterino.prototype =  new Profesor(); // Añadimos esta linea luego para demostrar que al vincular el prototipo con el Obj tipo Profesor este podrá heredar sus propiedades y metodos prototipicos.
+ 
+
+function ejemploObjetos() {
+
+var unProfesor = new Profesor(); unProfesor.saludar();
+
+var unProfesorInterino = new ProfesorInterino(4, 'Universidad de Chapingo');
+
+var msg = 'El objeto unProfesorInterino tiene ' + unProfesorInterino.mesesContrato + ' meses de contrato';
+
+msg = msg + ' y pertenece a la institución '+unProfesorInterino.institucion;
+
+alert(msg);
+
+unProfesorInterino.saludar();
+
+}
+/*Lo que comprobamos es que los objetos de tipo Profesor conocen el método saludar (que es un método común a todos los objetos de tipo Profesor definido a través de su prototipo), pero sin embargo los objetos de tipo ProfesorInterino no conocen el método saludar, lo que demuestra que no es están comportando realmente como Profesor.
+
+Para que los objetos de tipo ProfesorInterino dispongan de todo lo que dispone Profesor nos falta hacer que el prototipo de todo objeto ProfesorInterino sea un objeto Profesor. De este modo, cuando se busque el método saludar se buscará en primer lugar como método intrínseco de ProfesorInterino, al no encontrarse se buscará en el prototipo, que al ser un objeto Profesor sí podrá responder cuando se invoque el método saludar.
+
+Para ello añadiremos la línea: ProfesorInterino.prototype =  new Profesor();
+
+Con esta línea ya los objetos de tipo ProfesorInterino conocen las propiedades y métodos comunes de Profesor.
+
+Con esta línea ya se ejecuta la invocación unProfesorInterino.saludar()  dando como resultado que se muestre por pantalla <<Hola trabajo en Universidad de Chapingo y mi salario base es 1200>>.
+
+En resumen, para implementar una herencia completa y poder crear instancias pasando parámetros para generar objetos que hereden propiedades y métodos de un supertipo usaremos la invocación call al supertipo y además estableceremos que el prototipo es un objeto del supertipo.*/
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+
+</body></html>

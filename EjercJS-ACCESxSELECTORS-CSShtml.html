@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center;}
+
+#calculadora {    font: bold 14px Arial,sans-serif; background-color: #9DD2EA;
+
+border-radius: 3px; height: auto; margin: 0 auto;  padding: 20px 20px 9px; width: 295px;
+
+}
+
+.parteSuperior .pantalla {
+
+background-color: rgba(0, 0, 0, 0.2); border-radius: 3px; color: #FFFFFF; float: right; font-size: 17px;
+
+height: 40px; letter-spacing: 1px; line-height: 40px; padding: 0 10px; text-align: right; width: 180px;
+
+}
+
+.teclas, .parteSuperior {overflow: hidden; }
+
+.teclas span, .parteSuperior span.limpiar {     background-color: #FFFFFF; border-radius: 3px; color: #888888;
+
+ cursor: pointer; float: left; height: 36px; line-height: 36px; margin: 0 7px 11px 0;
+
+ text-align: center; transition: all 0.4s ease 0s; width: 66px;
+
+}
+
+.parteSuperior span.limpiar { background-color:#FF7C87;}
+
+.teclas span.operador { background-color: #FFDAB9; margin-right: 0; }
+
+.teclas span.igual { background-color: #F1FF92; color: #888E5F;}
+
+.parteSuperior span.limpiar, { background-color: #FF9FA8; color: #FFFFFF; }
+
+.teclas span:hover, .teclas span.igual:hover, .parteSuperior span.limpiar:hover { background-color: #9C89F6;
+
+color: #FFFFFF; }
+
+ 
+
+#contenedor {width:285px;margin: 40px auto; overflow:hidden;}
+
+#marcaNumeros, #marcaOperadores, #marcarTeclaC, #marcarPunto, #marcarPantalla {padding:15px; width: 90px; display: inline-block;
+
+margin: 10px; cursor: pointer; color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+#marcaNumeros:hover, #marcaOperadores:hover, #marcarTeclaC:hover, #marcarPunto:hover, #marcarPantalla:hover {background: rgb(66, 184, 221);}
+
+</style>
+
+ 
+
+<script type="text/javascript">
+
+ function resetAll() {
+
+var listaNodosOperadores = document.querySelectorAll("#calculadora .teclas span.operador");
+
+var nodoIgual = document.querySelector (".igual");
+
+var listaNodosNumeros = document.querySelectorAll("#calculadora .teclas span.numero");
+var nodoC = document.querySelector(".limpiar");
+
+var nodoPunto = document.querySelector(".punto");
+
+var nodoPantalla = document.querySelector(".pantalla");
+
+    nodoPantalla.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+    nodoPantalla.style.border = "inherit";
+
+    nodoIgual.style.backgroundColor = "#F1FF92";
+    nodoIgual.style.color = "#888E5F";
+    nodoIgual.style.border = "inherit";
+
+    nodoC.style.backgroundColor = "#FF7C87";
+    nodoC.style.color = "#888888";
+    nodoC.style.border = "inherit";
+
+    nodoPunto.style.backgroundColor = "#FFFFFF";
+    nodoPunto.style.color = "#888888";
+    nodoPunto.style.border = "inherit";
+
+    for (var i=0; i<listaNodosOperadores.length; i++) {
+
+                listaNodosOperadores[i].style.backgroundColor = "#FFDAB9";
+
+                listaNodosOperadores[i].style.color = "#888888";
+
+                listaNodosOperadores[i].style.border = "inherit";
+
+                }
+
+    for (var i=0; i<listaNodosNumeros.length; i++) {
+
+                listaNodosNumeros[i].style.backgroundColor = "#FFFFFF";
+
+                listaNodosNumeros[i].style.color = "#888888";
+
+                listaNodosNumeros[i].style.border = "inherit";
+
+                }
+
+
+}
+
+function marcarOperadores() {
+
+var listaNodosOperadores = document.querySelectorAll("#calculadora .teclas span.operador");
+
+var nodoIgual = document.querySelector (".igual");
+
+       for (var i=0; i<listaNodosOperadores.length; i++) {
+
+                listaNodosOperadores[i].style.backgroundColor = "yellow";
+
+                listaNodosOperadores[i].style.color = "black";
+
+                listaNodosOperadores[i].style.border = "solid 1px";
+
+                }
+
+                nodoIgual.style.backgroundColor = "yellow";
+
+                nodoIgual.style.color = "black";
+
+                nodoIgual.style.border = "solid 1px";
+
+}
+
+ 
+
+function marcarNumeros() {
+
+var listaNodosNumeros = document.querySelectorAll("#calculadora .teclas span.numero");
+
+       for (var i=0; i<listaNodosNumeros.length; i++) {
+
+                listaNodosNumeros[i].style.backgroundColor = "black";
+
+                listaNodosNumeros[i].style.color = "white";
+
+                listaNodosNumeros[i].style.border = "solid 1px";
+
+                }
+
+}
+
+function marcarTeclaC() {
+
+var nodoC = document.querySelector(".limpiar");
+
+      nodoC.style.backgroundColor = "rgb(200, 0, 0)";
+      nodoC.style.color = "white";
+      nodoC.style.border = "solid 1px";
+}
+
+function marcarPunto() {
+
+var nodoPunto = document.querySelector(".punto");
+
+      nodoPunto.style.backgroundColor = "rgb(160, 0, 255)";
+      nodoPunto.style.color = "white";
+      nodoPunto.style.border = "solid 1px";
+}
+
+function marcarPantalla() {
+
+var nodoPantalla = document.querySelector(".pantalla");
+
+      nodoPantalla.style.backgroundColor = "rgb(0, 0, 108)";
+      nodoPantalla.style.border = "solid 1px";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="cabecera">
+
+<h2>Cursos aprenderaprogramar.com</h2>
+
+<h3>Ejemplo calculadora JavaScript</h3>
+
+</div>
+
+<!-- Calculadora -->
+
+<div id="calculadora">
+
+                <!-- pantalla y tecla limpiar -->
+
+                <div class="parteSuperior">
+
+                               <span class="limpiar" onclick="pulsada('C')">C</span>
+
+                               <div class="pantalla"> </div> <!--Ojo tenemos un espacio para que exista nodeValue-->
+
+                </div>
+
+               
+
+                <div class="teclas">
+
+                               <!-- operadores y otras teclas -->
+
+                               <span class = "numero" onclick="pulsada('7')">7</span>
+
+                               <span class = "numero" onclick="pulsada('8')">8</span>
+
+                               <span class = "numero" onclick="pulsada('9')">9</span>
+
+                               <span class="operador" onclick="pulsada('+')">+</span>
+
+                               <span class = "numero" onclick="pulsada('4')">4</span>
+
+                               <span class = "numero" onclick="pulsada('5')">5</span>
+
+                               <span class = "numero" onclick="pulsada('6')">6</span>
+
+                               <span class="operador" onclick="pulsada('-')">-</span>
+
+                               <span class = "numero" onclick="pulsada('1')">1</span>
+
+                               <span class = "numero" onclick="pulsada('2')">2</span>
+
+                               <span class = "numero" onclick="pulsada('3')">3</span>
+
+                               <span class="operador" onclick="pulsada('/')">÷</span>
+
+                               <span class = "numero" onclick="pulsada('0')">0</span>
+
+                               <span class ="punto" onclick="pulsada('.')">.</span>
+
+                               <span class="igual" onclick="pulsada('=')">=</span>
+
+                               <span class="operador" onclick="pulsada('*')">x</span>
+
+                </div>
+
+</div>
+
+<div id="contenedor">
+
+<div id ="marcaNumeros" onclick="marcarNumeros()"> Marcar números </div>
+
+<div id="marcaOperadores" onclick="marcarOperadores()" >Marcar operadores</div>
+
+<div id="marcarTeclaC" onclick="marcarTeclaC()" >Marcar Tecla C</div>
+
+<div id="marcarPunto" onclick="marcarPunto()" >Marcar Tecla Punto</div>
+
+<div id="marcarPantalla" onclick="marcarPantalla()" >Marcar Pantalla</div>
+
+
+<div id="marcarPantalla" onclick="resetAll()" >Desmarcar</div>
+</div>
+
+</body>
+
+</html>

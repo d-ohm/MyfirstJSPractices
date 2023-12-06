@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function Meteorito (diametro, temperatura, nombre){
+
+	this.nombre = nombre;
+	this.diametro = diametro;
+	this.temperatura = temperatura;
+	
+
+
+
+	Meteorito.definicionSegunDiccionario = 'Un meteorito es un meteoroide que alcanza la superficie de un planeta debido a que no se desintegra por completo en la atmósfera. La luminosidad dejada al desintegrarse se denomina meteoro.';
+	
+
+	Meteorito.obtenerRadio = function() { radio = (diametro / 2);
+		return radio;}
+
+	Meteorito.obtenerTemperaturaFarenheit = function() { farenheit = 32 +(temperatura * 9/5);
+		return farenheit;}
+}
+
+
+function nuevoMeteorito() {
+
+
+	var meteorito = new Meteorito(200, 12, 'Tagish Lake');
+
+
+alert(Meteorito.definicionSegunDiccionario); 
+
+alert('El meteorito '+ meteorito.nombre+ ' tiene un  radio de '+ Meteorito.obtenerRadio() + ' y una temperatura de '+Meteorito.obtenerTemperaturaFarenheit()+ ' grados Farenheit');
+	
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="nuevoMeteorito()">Pulsa para conocer un cometa </div>
+
+</body></html>

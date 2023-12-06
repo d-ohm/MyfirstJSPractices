@@ -1,0 +1,53 @@
+<html> 
+<head>
+	
+	<title>
+		JS Ej6
+	</title>
+
+	<script type="text/javascript">
+		function muestramssg5() { 
+
+			var diametro, grosor;
+
+			diametro = prompt('Por favor introduce el diametro de la rueda: ');
+
+			if (diametro =="") { alert('No has introducido ningún diametro'); }
+			else {alert("El diametro intrducido es: " + diametro);}
+
+			diametro = Number(diametro);
+
+			
+
+			grosor = prompt('Por favor introduce el grosor de la rueda: ');
+
+			if (grosor =="") { alert('No has introducido ningún diametro'); }
+			else {alert("El grosor intrducido es: " + grosor);}
+
+			grosor = Number(grosor);
+
+			
+
+		if (diametro > 1.4) {alert("La rueda es para un vehículo grande");}
+
+		else if ( 0.8 < diametro <= 1.4 ) {alert("La rueda es para un vehículo mediano");}
+
+		else {alert("La rueda es para un vehículo pequeño");}
+
+
+		if (diametro > 1.4 && grosor < 0.4 || 0.8 < diametro <=1.4 && grosor < 0.25) {alert ('“El grosor para esta rueda es inferior al recomendado”');}
+
+}
+
+	</script>
+
+</head>
+
+<body>
+	
+	<p style="background-color: darkgreen; color: white; width: 5%"  onclick="muestramssg5()">
+
+	Click aqui! </p>
+</body>
+
+</html>

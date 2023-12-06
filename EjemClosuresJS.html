@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+//El closure se genera cuando una función interna a otra función usa una variable local (o parámetro recibido) de la función externa. 
+
+function dimeMsg(nombre){
+
+                var msg = 'hola';
+
+                var respuesta = function () { alert(msg+ ' ' + nombre); }
+
+                respuesta()
+
+}
+/* Codigo equivalente
+
+function dimeMsg(nombre){
+
+                var msg = 'hola';
+
+                function respuesta () {  alert(msg+ ' ' + nombre);        }
+
+                respuesta()
+}*/
+
+ 
+
+function ejemplo(){ var habla1 = dimeMsg('Juan'); }
+
+</script></head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+</body></html>

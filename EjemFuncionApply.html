@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function Profesor (nombre) { this.nombre = nombre || 'Nombre desconocido'; this.salarioBase = 1200; }
+
+function saludar(nombrePersona, modoSaludo) {
+
+alert ('Hola, soy ' + this.nombre + ' y saludo a ' +nombrePersona+ ' con ' + modoSaludo); }
+
+function ejemploObjetos() { var unProfesor = new Profesor('Carlos');
+
+saludar.apply();
+
+var unArray = ['Christian', 'odio'];
+
+saludar.apply(unProfesor, ['Ernesto', 'afecto']); 
+
+saludar.apply(unProfesor, unArray); 
+
+}
+/*Call y apply son dos funciones muy similares. ¿Cuándo usar una y cuándo usar otra? En muchos casos será indistinto usar una y otra. Sin embargo apply nos provee de la potencia de los arrays, lo que la hace interesante cuando por algún motivo necesitemos crear bucles que recorran los parámetros pasados en el array, o cuando simplemente no se conozca a priori el número de parámetros que deben pasarse porque se establecen de forma dinámica.*/
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+
+</body></html>

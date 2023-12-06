@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+body>ol {text-align: left;}
+
+ol>li {margin-bottom: 5%;}
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: lightyellow; border-radius: 5px;}
+.nodoRaiz2 {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+.nodoRaiz3 {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: gold; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+
+function stringToNumber() {var supDiezM = prompt('Ingrese un número superior a 10 millones: ');
+	supDiezM = Number(supDiezM);
+	supDiezM <= 10000000 ? alert('El número no cumple la condicion, vuelva a pulsar para reingresarlo') : alert('Las 3 cifras significativas del número introducido son: '+ supDiezM.toPrecision(3));}
+function regExpToNumber(){
+	var con4Deci = prompt('Ingrese un número con 4 decimales: ');
+	var regComa = /\,{1}/;
+	if (regComa.test(con4Deci) ==true) {con4Deci = con4Deci.replace(regComa,'.');}
+	var regExp = /\.{1}..../;
+	con4Deci = Number(con4Deci); 
+	regExp.test(con4Deci)==true? alert(con4Deci.toFixed(2)):alert('El número no cumple la condicion, vuelva a pulsar para reingresarlo');}
+function regExpFrase(){ var frase = prompt('Ingrese una frase que comience con un numero entero o racional: ');
+	var regComa = /\,{1}/;
+	if (regComa.test(frase) ==true) {frase = frase.replace(regComa,'.');}
+	var regExpN = /^\d+\D?\d*\s+\D+/g;
+	regExpN.test(frase)==true? alert(parseFloat(frase)):alert('La frase no cumple la condicion, vuelva a pulsar para reingresarla');
+	/* */
+}
+
+
+</script>
+
+</head>
+
+<body>
+<h2>EJERCICIO</h2>
+
+<h3>Crea un script donde:</h3>
+
+<ol type="a" >
+	<li>Se pida al usuario que introduzca un número superior a 10000000 y se muestre por pantalla ese número con tres dígitos significativos. Si el número introducido no cumple la condición, se volverá a solicitar que se introduzca.</li>
+
+	<li>Se pida al usuario que introzca un número con 4 decimales y se muestre por pantalla ese número redondeado a dos decimales. Si el número introducido no cumple la condición, se volverá a solicitar que se introduzca (para ello habrá que analizar que la cadena introducida cuente con cuatro dígitos después del carácter de punto decimal).</li>
+
+	<li>Se pida al usuario que introduzca una frase que comience por un número que puede ser entero o decimal. Para dicha frase, se devolverá el número entero que se pueda extraer, y el número decimal que se pueda extraer. Deberá analizarse la entrada con una expresión regular, de modo que si no cumple la condición, se vuelva a solicitar la introducción de la frase.</li></ol></div>
+
+<div class="nodoRaiz" onclick="stringToNumber()">Pulsa acá para el ver resultado del ejerciocio "a"</div>
+<div class="nodoRaiz2" onclick="regExpToNumber()">Pulsa acá para el ver resultado del ejercicio "b" </div>
+<div class="nodoRaiz3" onclick="regExpFrase()">Pulsa acá para ver el resultado del ejercicio "c" </div>
+
+</body></html>

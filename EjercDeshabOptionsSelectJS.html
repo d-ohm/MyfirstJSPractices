@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css"> body, p {margin-left:30px; font-family: sans-serif;}
+
+.estiloForm {background-color: #f3f3f3; border: solid 2px black; margin-left:20px; width: 330px; padding:10px; }
+
+.estiloForm label {display: block; width: 120px; float: left; text-align:right; margin-bottom: 35px; padding-right: 20px;}
+
+br {clear: left;} input[type="submit"], input[type="reset"] {margin:25px 5px 10px 5px;}
+
+</style>
+<script type="text/javascript">
+
+    // "use strict";
+
+    window.onload = function(){ 
+
+        formuP = formulario.pais;
+
+        formuC = formulario.ciudad;
+
+            for (var i=0; i<formulario.length;i++){
+
+               if (formulario[i].name=="pais") {formulario[i].addEventListener('change', inhabCiudad);}
+               else {formulario[i].addEventListener('change', selecCiudad);}
+
+                if(formulario[i].value=="Cancelar"){formulario[i].addEventListener('click', recarga)}
+            }
+    }
+
+    function inhabCiudad(){
+
+        var esto = this;
+
+        for(var i=0; i<formuC.options.length;i++){
+
+            if(esto.value=='Mexico'){ formuC.options[i].disabled=false; //se coloca un disabled=false acá para que en caso de cambiar de pais se rehabiliten las otras ciudades
+                if(formuC.options[i].value!='Mexicodf'&&formuC.options[i].value!='Guadalajara'){formuC.options[i].disabled=true;}
+            }
+            else if(esto.value=='Espania'){ formuC.options[i].disabled=false;
+                if(formuC.options[i].value!='Madrid'&&formuC.options[i].value!='Barcelona'){formuC.options[i].disabled=true;}
+            }
+            else if(esto.value=='Peru'){ formuC.options[i].disabled=false;
+                if(formuC.options[i].value!='Lima'&&formuC.options[i].value!='Trujillo'){formuC.options[i].disabled=true;}
+            }
+            else if(esto.value=='Colombia'){ formuC.options[i].disabled=false;
+                if(formuC.options[i].value!='Bogota'&&formuC.options[i].value!='Cali'){formuC.options[i].disabled=true;}
+            }
+        }
+    }
+
+    function selecCiudad(){
+
+        var esto = this;
+
+        for(var i=0; i<formuP.options.length;i++){
+
+            if(esto.value=='Mexicodf'||esto.value=='Guadalajara'){ 
+                if(formuP.options[i].value=='Mexico'){formuP.options[i].selected=true; formuP.options[i].disabled=false;}
+                else{formuP.options[i].disabled=true;}
+            } // se pone un disabled=false para que se inhabiliten los paises no autoseleccionados 
+            else if(esto.value=='Madrid'||esto.value=='Barcelona'){
+                if(formuP.options[i].value=='Espania'){formuP.options[i].selected=true; formuP.options[i].disabled=false;}
+                else{formuP.options[i].disabled=true;}
+            }
+            else if(esto.value=='Lima'||esto.value=='Trujillo'){
+                if(formuP.options[i].value=='Peru'){formuP.options[i].selected=true; formuP.options[i].disabled=false;}
+                else{formuP.options[i].disabled=true;}
+            }
+            else if(esto.value=='Bogota'||esto.value=='Cali'){
+                if(formuP.options[i].value=='Colombia'){formuP.options[i].selected=true; formuP.options[i].disabled=false;}
+                else{formuP.options[i].disabled=true;}
+            }        
+        }
+    }
+
+    function recarga(){window.location.reload();}
+    
+</script>
+</head>
+
+<body><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3>
+
+                <div class="estiloForm">
+
+                               <form name ="formulario" method="get">
+
+                               <label>País</label><select id="pais" name="pais">
+
+                               <option value="">Elija opción</option><option value="Mexico">México</option>
+
+                               <option value="Espania">España</option><option value="Peru">Perú</option>
+
+                               <option value="Colombia">Colombia</option>
+
+                               </select><br/>
+
+                               <label>Ciudad</label><select id="ciudad" name="ciudad">
+
+                               <option value="">Elija opción</option><option value="Mexicodf">México D.F.</option>
+
+                               <option value="Guadalajara">Guadalajara</option><option value="Madrid">Madrid</option>
+
+                               <option value="Barcelona">Barcelona</option><option value="Lima">Lima</option>
+
+                               <option value="Trujillo">Trujillo</option><option value="Bogota">Bogotá</option>
+
+                               <option value="Cali">Cali</option>
+
+                               </select><br/>
+
+                               <input class="botonFormulario" type="submit" value="Enviar"/>
+
+                               <input class="botonFormulario" type="reset" value="Cancelar"/>
+
+                </form>
+
+                </div>
+</body></html>

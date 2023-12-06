@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+//Función para encontrar el valor de una cookie
+
+function readCookie(nombre) {
+
+                var nombreIgual = nombre + "=";
+
+                var numeroCookies = document.cookie.split(';');
+
+                for(var i=0;i < numeroCookies.length;i++) { //Recorremos todas las cookies
+
+                               var valorCookie = numeroCookies[i]; //Analizamos la cookie actual
+
+                               while (valorCookie.charAt(0)==' ') {valorCookie = valorCookie.substring(1,valorCookie.length); } //Eliminamos espacios
+
+                               if (valorCookie.indexOf(nombreIgual) == 0) {return valorCookie.substring(nombreIgual.length,valorCookie.length);} //Devolvemos el valor
+
+                }
+
+                return null; //Si numeroCookies es cero se devuelve null
+
+}
+
+window.onload = function () {alert ('El valor de la cookieNombreUsuario es: '+readCookie('cookieNombreUsuario'));
+
+alert ('El valor de la cookieEdadUsuario es: '+readCookie('cookieEdadUsuario'));
+
+};
+/*Vamos a destacar algunas cuestiones del código que hemos usado:
+
+a) Las cookies se crean en una url (inicioCookie.html) y se almacenan en el navegador.
+
+b) Las cookies se recuperan en otra url (item1Cookie.html) usando la función readCookie. De esta manera tenemos una solución al problema de transmitir información entre distintas urls que habíamos planteado al principio de esta explicación. La función readCookie utiliza distintas construcciones y funciones nativas de JavaScript que deberías ser capaz de entender completamente si has venido siguiendo el curso desde el principio. Si no entiendes algo de este código, repasa las entregas anteriores del curso.
+
+c) Las cookies que se reciben son sólo las asociadas al dominio. ¿Y cuál es el dominio? En este caso el asociado a la ruta de nuestro computador donde estemos trabajando. Si estuviéramos trabajando sobre una web on-line, el dominio serían todas las páginas pertenecientes al sitio web.
+
+d) Las cookies que se han creado tienen fecha de caducidad 2049. Es decir, no se borrarán del navegador hasta 2049, excepto si realizamos el borrado de cookies del navegador (al borrado de este tipo de datos se le denomina en sentido amplio “Limpieza de la caché del navegador”).*/
+ 
+
+</script></head>
+
+<body><div id="numeroCookiesbecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" ><a href="inicioCookie.html"> Pulse aquí para volver</a></div>
+</body></html>

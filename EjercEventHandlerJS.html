@@ -1,0 +1,111 @@
+ <!DOCTYPE html>
+
+<html> <head><title>Portal web - aprenderaprogramar.com</title>
+
+<meta name="description" content="Portal web aprenderaprogramar.com">
+
+<meta name="keywords" content="aprender, programar, cursos, libros"><meta charset="utf-8">
+<script type="text/javascript">
+	window.onload = function() {
+		var etH1 = document.getElementsByTagName('h1');
+			etH1[0].onmouseover = etH1Evover;
+	 		etH1[0].onmouseout = etH1Evout;
+
+	 	function etH1Evover() {return etH1[0].style.color = 'orange';}
+
+		function etH1Evout() {return etH1[0].style.color = 'saddlebrown';}
+
+		var etH3a = document.getElementById('h3a');
+			etH3a.onmouseover = etH3aEvover;
+			etH3a.onmouseout = etH3aEvout;
+
+	 	function etH3aEvover() {return etH3a.style.color = 'orange';}
+
+		function etH3aEvout() {return etH3a.style.color = 'saddlebrown';}   
+
+		var etH3b = document.getElementById('h3b');
+			etH3b.onmouseover = etH3bEvover;
+			etH3b.onmouseout = etH3bEvout;
+
+	 	function etH3bEvover() {return etH3b.style.color = 'orange';}
+
+		function etH3bEvout() {return etH3b.style.color = 'saddlebrown';}
+
+		var etPa = document.getElementById('pa');
+			etPa.onmouseover = etPaEvover;
+			etPa.onmouseout = etPaEvout;
+
+	 	function etPaEvover() {return etPa.style.backgroundColor = 'yellow';}
+
+		function etPaEvout() {return etPa.style.backgroundColor = 'inherit';}
+
+		var etPb = document.getElementById('pb');
+			etPb.onmouseover = etPbEvover;
+			etPb.onmouseout = etPbEvout;
+
+	 	function etPbEvover() {return etPb.style.backgroundColor = 'yellow';}
+
+		function etPbEvout() {return etPb.style.backgroundColor = 'inherit';}
+
+		var etPc = document.getElementById('pc');
+			etPc.onmouseover = etPcEvover;
+			etPc.onmouseout = etPcEvout;
+
+	 	function etPcEvover() {return etPc.style.backgroundColor = 'yellow';}
+
+		function etPcEvout() {return etPc.style.backgroundColor = 'inherit';}
+
+		var etPd = document.getElementById('pd');
+			etPd.onmouseover = etPdEvover;
+			etPd.onmouseout = etPdEvout;
+
+	 	function etPdEvover() {return etPd.style.backgroundColor = 'yellow';}
+
+		function etPdEvout() {return etPd.style.backgroundColor = 'inherit';}
+
+		var etPe = document.getElementById('pe');
+			etPe.onmouseover = etPeEvover;
+			etPe.onmouseout = etPeEvout;
+
+	 	function etPeEvover() {return etPe.style.backgroundColor = 'yellow';}
+
+		function etPeEvout() {return etPe.style.backgroundColor = 'inherit';}
+
+		var etPf = document.getElementById('pf');
+			etPf.onmouseover = etPfEvover;
+			etPf.onmouseout = etPfEvout;
+
+	 	function etPfEvover() {return etPf.style.backgroundColor = 'yellow';}
+
+		function etPfEvout() {return etPf.style.backgroundColor = 'inherit';}
+
+	}
+	/* a) Mediante el control de los eventos onmouseover y onmouseout, debemos hacer que cuando el usuario pase el ratón sobre las etiquetas h1 y h3, el color del texto pase a ser orange y cuando deje de pasarlo el texto quede en marrón.
+
+	b) Mediante el control del evento onmouseover, debemos hacer que cuando el usuario pase el ratón sobre un párrafo, el color de fondo del párrafo sea amarillo y cuando deje de pasarlo no haya color de fondo.
+
+	c) El código JavaScript debe estar situado entre las etiquetas <head> … </head>*/
+</script>
+
+</head>
+
+ <body> <p id="pa"><a href="principal.html" title="Página principal" >Ir a la pagina principal</a></p>
+
+<h1>Novedades</h1>
+
+<p id="pb">Aquí presentamos las novedades del sitio.</p>
+
+<h3 id="h3a">Lanzamos el producto X-FASHION</h3>
+
+<p id="pc">Este producto permite estirar la piel hasta dejarla como la de un bebé.</p>
+
+<p id="pd"><img src="http://i.imgur.com/tq5Bs.png" title="Imagen del producto" alt="imagen producto x-fashion" /></p>
+
+<h3 id="h3b">Mejoramos el producto T-MOTION</h3>
+
+<p id="pe">Hemos lanzado una nueva versión del producto T-MOTION</p>
+
+<p id="pf"><img src="http://i.imgur.com/SpZyc.png" title="Imagen del proudcto tmotion" alt="imagen producto tmotion" /></p>
+
+</body>
+</html>

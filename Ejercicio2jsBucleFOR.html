@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Ejemplo DOM - aprenderaprogramar.com</title>
+
+<meta charset="utf-8">
+
+<style type="text/css">
+
+body {background-color:white; font-family: sans-serif;}
+
+p {font-size: 24px; color: maroon; float: left; margin:10px; border: solid black; padding:10px;}
+
+.boton{padding:15px; width: 330px;  text-align:center; clear:both;
+
+color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+
+.boton:hover {background: rgb(66, 184, 221);}
+
+</style>
+
+<script type="text/javascript">
+function mostrarContParrafos(elemento) {
+
+var parrafosOb=document.getElementsByTagName(elemento);
+var Nparrafos=parrafosOb.length;
+var parrafos=[];
+var msg = [];
+// alert(parrafos.length);
+
+	for (i=0; i<Nparrafos; i++) {msg[i]= '\n Parrafo '+(i+1)+': '+parrafosOb[i].childNodes[0].nodeValue;} //tambien puede ir parrafoOb[i].innerText ó parrafoOb[i].textContent.
+alert(msg);
+
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Portal web aprenderaprogramar.com</h1>
+
+<h2>Didáctica y divulgación de la programación</h2>
+
+<div style="width:500px; float:left; margin-bottom:30px;">
+
+<p>Manzana</p><p>Pera</p><p>Fresa</p><p>Ciruela</p>
+
+<p>Naranja</p><p>Kiwi</p><p>Pomelo</p><p>Melón</p>
+
+<p>Sandía</p><p>Mango</p><p>Papaya</p><p>Cereza</p>
+
+<p>Nectarina</p><p>Frambuesa</p></div>
+
+<h3 class="boton" onclick="mostrarContParrafos('p')">Pulse aquí para ver que contiene cada parrafo HTML</h3>
+
+</body>
+
+</html>

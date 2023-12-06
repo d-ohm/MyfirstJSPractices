@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0"/>
+<style type="text/css">
+	@media (min-width : 100px) and  (max-width : 4080px) {
+body {font-family: Geneva, Tahoma, "Nimbus Sans L", sans-serif; text-align: center;}
+h1 {display: flex; margin: auto; justify-content: center;}
+#tecla {border-style:solid; margin: auto; height: 500px; width: 400px; background-color: lightgrey; border-radius: 5px; display: flex; justify-content: center; font-size: 25px;}
+th, td {height: 43px; width: 42px; border-collapse: collapse; border-radius: 5px;} }
+</style>
+<script type="text/javascript" >
+//Declaro el tipo de objeto y sus propiedades vinculadas al Objeto Date
+	function nCalendarioH() {
+	this.fecha = new Date();
+	this.anyo = this.fecha.getFullYear();
+	this.mes = this.fecha.getMonth();
+	this.dia = this.fecha.getDay();
+	this.hoy = this.fecha.getDate();}
+//Declaro un metodo para definir el mes y año del calendario, vinculado al prototipo con la finalidad de poder heredarlo.
+nCalendarioH.prototype.mesDia = function(){
+	var mesCal = document.getElementById("mes");
+	var meses = ['ENERO','FEBRERO','MARZO','ABRIL','MAYO','JUNIO','JULIO','AGOSTO','SEPTIEMBRE','OCTUBRE','NOVIEMBRE','DICIEMBRE']
+	for (var i=0; i<=11; i++){
+		if (this.mes == i) {mesCal.innerHTML = meses[i]+ " DE " + this.anyo;}}}
+/*Creo otro metodo vinculado al prototipo, en cual establezco una funcion anidada que de acuerdo al mes, 
+vincula cada fecha en su dia correspondiente, y un bucle 'do' que deacuerdo a cual sea el primer dia del mes completa el 
+resto de dias subsiguientes a partir del mismo.*/
+nCalendarioH.prototype.cal = function(){
+	// var diaM = Array.from({length: 7}, (x, i) => i); // Creo un rango de 0 a 6 --No soportado en IE 11 o menor
+	var diaM = [...Array(6).keys()]; //Otra forma de crear un rango de 0 a 6 --No soportado en IE 11 o menor
+	var diaH = diaM[this.dia];
+	var mesD = Array.from({length: 31}, (element, index) => index + 1); // Creo un rango de 1 a 31  --No soportado en IE 11 o menor
+	var diasPostF = mesD.slice(0, 27+1);
+	var diasPostFB = mesD.slice(0, 28+1);
+	var diasPostMC = mesD.slice(0, 29+1);
+	var diasPostML = mesD.slice(0, 30+1);
+	var fila1_6 = document.getElementsByTagName("td");
+	var semD = 5;
+	var conMarcV = semD-1;
+
+	function bucleMeses(semDi) {
+			if (this.anyo % 4 == 0 && this.mes == 1){
+			for (var j=0; j<=diasPostFB.length; j++){fila1_6[j+semDi].innerHTML = diasPostFB[j]==undefined?"":diasPostFB[j];}}
+			else if (this.anyo % 4 != 0 && this.mes == 1){
+			for (var j=0; j<=diasPostF.length; j++){fila1_6[j+semDi].innerHTML = diasPostF[j]==undefined?"":diasPostF[j];}}
+			else if(this.mes==3||this.mes==5||this.mes==8||this.mes==10){
+			for (var j=0; j<=diasPostMC.length; j++){fila1_6[j+semDi].innerHTML = diasPostMC[j]==undefined?"":diasPostMC[j];}}
+			else{
+			for (var j=0; j<=diasPostML.length; j++){fila1_6[j+semDi].innerHTML = diasPostML[j]==undefined?"":diasPostML[j];}}
+			fila1_6[this.hoy+semDi-1].style.backgroundColor='lightblue';}
+
+	do{	for (var i=(this.hoy-1);i>=0;i--) {
+		if(mesD[i] ==1){
+			switch(diaH){
+				case 0:	semD +=1; bucleMeses.call(this, semD); break;
+				case 1: semD-=5; bucleMeses.call(this, semD); break;
+				case 2:	semD-=4;bucleMeses.call(this, semD);break;
+				case 3:	semD-=3;bucleMeses.call(this, semD);break;
+				case 4:	semD-=2;bucleMeses.call(this, semD);break;
+				case 5:	semD-=1;bucleMeses.call(this, semD);break;
+				case 6:	bucleMeses.call(this, semD);break;}}
+			if(diaH==0){diaH+=7;}
+		diaH-=1;}}while(mesD>0);}
+
+// Creo otro objeto tipo que hereda los métodos del prototipo de 'nCalendarioES'
+function nCalendarioES(eFecha,eMes,eAño) {
+	this.fecha2 = new Date();
+	this.fecha2.setDate(eFecha);
+	this.fecha2.setMonth(eMes-1);
+	this.fecha2.setFullYear(eAño);
+	this.anyo = this.fecha2.getFullYear();
+	this.mes = this.fecha2.getMonth();
+	this.dia = this.fecha2.getDay();
+	this.hoy = this.fecha2.getDate();}
+
+nCalendarioES.prototype = new nCalendarioH();
+
+// Instancio el objeto 'defCal' y 'defCal2' dependiendo de si el usuario introduce una fecha o no
+window.onload =
+function objCalendario() {
+	alert("Introduzca una fecha para ver el calendario de esa fecha.\nSi no introduce nada, verá según la fecha actual.")
+	var fechaI = prompt("introduzca el día: ");		
+	var mesI = prompt("introduzca el mes: ");
+	var añoI = prompt("introduzca el año: ");
+	fechaI = Number(fechaI);
+	mesI = Number(mesI);
+	añoI = Number(añoI);
+
+	if(fechaI||mesI||añoI){var defCal2 = new nCalendarioES(fechaI,mesI,añoI); defCal2.mesDia();	defCal2.cal();}
+	else{	var defCal = new nCalendarioH(); defCal.mesDia(); defCal.cal();}}
+
+
+</script>
+</head>
+<body >
+	<h1>Calendario</h1>
+        <div id="tecla">
+	<table border="1" cellpadding="4" align="center">		
+		  <caption id="mes" style=" font-size: 25px; margin: 30px; "> </caption> 		
+	     <tr>
+	      <th  colspan="1">Lu</th>
+	      <th  colspan="2">Ma</th>
+	      <th  colspan="3">Mi</th>
+	      <th  colspan="4">Ju</th>
+	      <th  colspan="5">Vi</th>
+	      <th  colspan="6">Sa</th>
+	      <th  colspan="7">Do</th>
+	     </tr>
+	    <tbody>   
+	      <tr id="fila1">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>   
+	      <tr id="fila2">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>   
+	      <tr id="fila3">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>   
+	      <tr id="fila4">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>   
+	      <tr id="fila5">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>
+	      <tr id="fila6">
+	      	<td colspan="1" class="lu"> </td>
+	      	<td colspan="2" class="ma"> </td>
+	      	<td colspan="3" class="mi"> </td>
+	      	<td colspan="4" class="ju"> </td>
+	      	<td colspan="5" class="vi"> </td>
+	      	<td colspan="6" class="sa"> </td>
+	      	<td colspan="7" class="do"> </td>
+	      </tr>	   
+	    </tbody>	     
+  </table>
+ </div>
+</body>
+</html>

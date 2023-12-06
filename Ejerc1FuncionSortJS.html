@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+function sortArray() {
+
+var arrayOr = [33, 2, 36, 55, 4, 1];
+
+var msg = 'El Array original: '+arrayOr+'.';
+
+var deMenorAMayor = arrayOr.sort(function deMenorAMayor(elem1, elem2) {return elem1-elem2;});
+msg = msg + '\nOrdenado de menor a mayor: '+deMenorAMayor+'.';
+
+var deMayorAMenor = arrayOr.sort(function deMayorAMenor(elem1, elem2) {return elem2-elem1;});
+msg = msg + '\nOrdenado de mayor a menor: '+deMayorAMenor+'.';
+
+alert(msg);
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="sortArray()">Pulsa acá </div>
+
+</body></html>

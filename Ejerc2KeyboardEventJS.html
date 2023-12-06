@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title>
+	<meta charset="utf-8" name="viewport" content="width=devce-width,initial-scale=1.0"/>
+
+
+
+<style type="text/css">
+	@media (min-width : 100px)
+  and 
+  (max-width : 4080px) {
+body {font-family: sans-serif; text-align:center; display: flex; text-align: center; justify-content: center; align-items: center; }
+h1 {display: flex; margin: auto; justify-content: center;}
+
+div {border-style:solid; margin: 200px; height: 300px; width: 300px; background-color: yellow; border-radius: 5px; font-size: 150px; display: flex; text-align: center; justify-content: center; align-items: center;}
+}
+
+</style>
+
+<script type="text/javascript">
+
+var Izq = 200;
+var Der = 200;
+var Arb = 200;
+var Abj = 200;
+
+window.onload = function () {
+
+document.onkeypress = mostrarTecla;
+document.onkeydown = borrarTecla; 
+document.onkeydown = moverRecuadro;
+}
+
+function mostrarTecla(TecEv) {
+	var	LetraNum = String.fromCharCode(TecEv.which);
+
+
+if (TecEv.which!=0 && TecEv.which!=13) {
+
+	tecla.innerHTML = LetraNum;
+
+	}
+}
+
+function borrarTecla(TecEv) {
+
+	tecla.innerHTML = "";
+}
+
+function moverRecuadro(TecEv) {
+	var flechaPres = TecEv.keyCode;	
+
+		// teclas Izquierda y Derecha
+		if (flechaPres == 37 && Izq >20 ) {
+			Izq -= 20;
+			Der += 20;	
+			tecla.innerHTML = 'Izq '+Izq;		
+		 }
+		else if (flechaPres == 39 && Der > 20) {
+			 Der -= 20;
+			 Izq += 20;
+			tecla.innerHTML = 'Der '+Der;	 		
+		 }		
+		//tecla Arriba y Abajo
+		else if (flechaPres == 38 && Arb > 20) {
+		 	Arb -= 20;
+		 	Abj += 20;
+		 	tecla.innerHTML = 'Arb '+Arb;
+		 }
+		else if (flechaPres == 40 && Abj > 20) {
+		 	Abj -= 20;
+		 	Arb += 20;
+		 	tecla.innerHTML = 'Abj '+Abj;
+		 }
+
+	document.querySelector('#tecla').style.marginLeft = Izq+"px";
+	document.querySelector('#tecla').style.marginRight = Der+"px";
+	document.querySelector('#tecla').style.marginBottom = Abj+"px";
+	document.querySelector('#tecla').style.marginTop = Arb+"px";
+}
+
+
+</script>
+
+</head>
+
+<body>
+	<h1>Pulsa una tecla</h1>
+        <div id="tecla"> </div>
+</body>
+</html>

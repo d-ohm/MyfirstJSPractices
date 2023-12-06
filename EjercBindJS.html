@@ -1,0 +1,38 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ function conversor(toUnit, factor, offset, input) {
+
+    offset = offset || 0;
+
+    return [((offset+input)*factor).toFixed(2), toUnit].join(" ");
+
+}
+
+ 
+
+var milesToKm = conversor.bind(undefined, 'km', 1.60936, 0);
+
+var poundsToKg = conversor.bind(undefined, 'kg', 0.45460, 0);
+
+var farenheitToCelsius = conversor.bind(undefined, 'gradosC',0.5556, -32);
+
+ 
+
+alert(milesToKm(10));           
+
+alert(poundsToKg(2.5));         
+
+alert(farenheitToCelsius(98)); 
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+</body>
+</html>

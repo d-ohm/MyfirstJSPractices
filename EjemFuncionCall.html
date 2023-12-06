@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+function Profesor (nombre) { this.nombre = nombre || 'Nombre desconocido'; this.salarioBase = 1200; }
+
+function saludar() { alert ('Hola, soy ' + this.nombre); }
+
+function ejemploObjetos() {
+
+var unProfesor = new Profesor('Carlos');
+
+saludar();
+
+saludar.call(unProfesor); 
+
+unProfesor.saludar(); //ERROR - NO PERMITIDO
+
+}
+/* Analicemos paso a paso lo que hace el código:
+
+Se define el tipo de objeto Profesor con los atributos nombre y salarioBase. Se define la función saludar() que carece de propiedades y que cuando se invoca muestra por pantalla un mensaje.
+
+Se crea un objeto de tipo Profesor cuya propiedad nombre vale “Carlos”.
+
+Se llama a la función saludar() y como resultado se obtiene “Hola, soy undefined”. ¿Por qué? Porque el objeto this en este caso es la propia función saludar y dicha función no tiene definido atributo nombre, por tanto al tratar de mostrar this.nombre muestra ‘undefined’.
+
+A continuación se llama a la función saludar indicando que el objeto unProfesor actuará como objeto this para la ejecución de la función. Como consecuencia, this.nombre vale “Carlos” y se muestra por pantalla el mensaje “Hola, soy Carlos”.
+
+El quid de la cuestión está en que cualquier función puede invocarse como método de cualquier objeto a través del método predefinido JavaScript call. En el ejemplo que hemos usado podemos destacar algunas cuestiones:
+
+a) saludar() es lo mismo que saludar.call(). Al indicar saludar.call() y no pasar como parámetro ningún objeto, es la propia función saludar quien actúa como this.
+
+b) La función saludar podría ser usada por diversos tipos de objetos que tuvieran un atributo name. La función actuaría así como método compartido por numerosos tipos de objetos, pudiendo estar fuera de la definición de los mismos y fuera de la cadena de herencia de los mismos.*/
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+
+</body>
+
+</html>

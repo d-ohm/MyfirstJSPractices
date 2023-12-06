@@ -1,0 +1,89 @@
+ <!DOCTYPE html>
+
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+
+<script type="text/javascript">
+
+ 
+
+function dimeVuelta(entrega){
+
+                var precio = 1000;
+
+                var respuesta = function () { return precio-entrega; } //Aquí el closure
+
+                return respuesta;
+
+}
+
+ 
+
+function ejemplo(){
+
+                var calcula = dimeVuelta(600);
+
+                alert('Su vuelta es ' +calcula());
+
+}
+/* Analicemos el código. La referencia “respuesta” es una cerradura o closure, ya que es una función interna que utiliza variables locales de la función externa.
+
+La función externa “dimeVuelta” devuelve como resultado una referencia a la función interna.
+
+Al ejecutar var calcula = dimeVuelta(600); lo que se almacena en “calcula” es una referencia a la función interna. Es como si hiciéramos calcula = function () { return precio-entrega; } ¿Pero qué significado tendrían aquí precio y entrega, teniendo en cuenta que la función donde se definían ya se ejecutó y por tanto en principio están fuera de un ámbito válido? Teóricamente las variables globales a una función son destruidas cuando termina de ejecutarse la función, por tanto precio y entrega supuestamente deberían haber sido destruidas.
+
+Sin embargo, cuando JavaScript encuentra un closure toda variable local que sea necesaria para el funcionamiento del closure queda encerrada en el propio closure. Es decir, dado que “respuesta” necesita de “precio” y “entrega”, éstas se guardan dentro de la función cerradura.
+
+Después de ejecutarse var calcula = dimeVuelta(600); en la variable “calcula” tenemos almacenados el precio (1000) y la entrega (600), aunque la función externa ya haya sido ejecutada.
+
+Ahora calcula tiene una referencia a una función. Para ejecutar dicha función invocamos calcula(), y dado que esta función recuerda los valores de variables locales devuelve 400 (obtenidos de 1000-400, precio-entrega).
+
+Ahora bien, ¿qué valor de variable local es el que almacena el closure? Tener en cuenta que una variable local puede cambiar a lo largo del código. Por ejemplo:
+ function dimeVuelta(entrega){
+
+                var precio = 1000;
+
+                var respuesta = function () { return precio-entrega; } //Aquí el closure
+
+                precio = 700;
+
+                return respuesta;
+}
+
+ 
+
+ 
+
+¿El closure quedará tomando como referencia 1000 ó 700? La realidad es que toma como referencia el valor que tenía la variable local cuando se produce la salida de la función externa (en este ejemplo justo antes del return), por tanto en este caso el closure queda almacenando como precio un valor de 700.
+
+Podría darse la situación de que existan varias funciones internas a una función externa dada, y que varias de esas funciones internas usen variables locales de la función externa. En este caso decimos que se generan varias cerraduras (una por cada función interna que hace uso de variables locales), pero aquí sí es cierto que todas ellas quedan con una única referencia de variable local: la que exista cuando se produzca la salida de la función externa.
+
+En el ejemplo anterior hemos usado la creación de una referencia intermedia para después invocar la función:
+
+function ejemplo() {           var calcula = dimeVuelta(600);        alert('Su vuelta es ' +calcula()); }
+
+ 
+
+ 
+
+Pero la invocación de la función podemos hacerla directamente si lo deseamos escribiendo esto:
+
+function ejemplo() {  alert('Su vuelta es ' +dimeVuelta(600)()); }
+
+ 
+
+ 
+
+Aquí dimeVuelta(600) nos devuelve la referencia a la función anónima, y al añadir () a continuación, damos pie a su ejecución directamente (sin necesidad de crear la referencia usando var).
+
+Si escribes alert('Su vuelta es ' +dimeVuelta(600)); por pantalla obtendrás la función que devuelve la función invocada, por tanto se verá << Su vuelta es function () { return precio-entrega; }>> o un mensaje similar (puede variar según el navegador).*/
+
+ 
+
+</script>
+
+</head>
+
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+
+<div style="color:blue;" id ="pulsador" onclick="ejemplo()"> Probar </div>
+</body></html>

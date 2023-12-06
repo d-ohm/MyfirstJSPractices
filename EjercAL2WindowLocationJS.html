@@ -1,0 +1,25 @@
+!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+		<script type="text/javascript">
+			window.onload = function() {
+				setTimeout(cuentaAtras, 1000);
+			}
+			var contador = 5;
+			function cuentaAtras() {
+				document.getElementById('datos').innerHTML = 'Hemos cambiado de ubicación esta página. En breve será redireccionado... ' + contador;
+				document.getElementById('datos').style.fontSize = '66px';
+				if (contador==0) {
+					window.location.assign('http://aprenderaprogramar.com');
+				} else {
+					contador--;
+					setTimeout(cuentaAtras, 1000);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="datos"></div>
+	</body>
+</html>

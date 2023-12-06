@@ -1,0 +1,94 @@
+ <html>
+
+    <head>
+
+                <meta charset="utf-8">
+
+                <style type="text/css">
+
+                input {margin:10px;}
+
+                </style>
+
+        <script>
+
+            function Valida(formulario) {
+
+                /* Validación de campos NO VACÍOS */
+
+                if ((formulario.campo1.value.length == 0) || (formulario.campo2.value.length ==0) || (formulario.cpostal.value.length ==0) || (formulario.dni.value.length ==0) || (formulario.email.value.length ==0)) {
+
+                    alert('Falta información');
+
+                    return false;
+
+                } 
+
+                if (isNaN(parseInt(formulario.campo2.value))) {
+
+                    alert('El campo2 debe ser un número');
+
+                    return false;
+
+                }
+
+                /* validación del CÓDIGO POSTAL*/
+
+                var ercp=/(^([0-9]{5,5})|^)$/;
+
+                if (!(ercp.test(formulario.cpostal.value))) {
+
+                    alert('Contenido del código postal no es un código postal válido');
+
+                    return false; }
+
+                /* validación del DNI */
+
+                var erdni=/(^([0-9]{8,8}\-[A-Z])|^)$/;
+
+                if (!(erdni.test(formulario.dni.value))) {
+
+                    alert('Contenido del dni no es un DNI válido.');
+
+                    return false;  }
+
+                /* validación del e-mail */
+
+                var ercorreo=/^[^@\s]+@[^@\.\s]+(\.[^@\.\s]+)+$/;        
+
+                if (!(ercorreo.test(formulario.email.value))) {
+
+                    alert('Contenido del email no es un correo electrónico válido.');
+
+                    return false; }
+
+                /* si no hemos detectado fallo devolvemos TRUE */
+
+                return true;
+
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+
+        <form name="miFormulario" onsubmit="return Valida(this);" action="" >
+
+            Campo1 <input type="text" name="campo1"><br>
+
+            Campo2 (debe ser número) <input type="text" name="campo2"><br>
+
+            Código postal <input type="text" name="cpostal"><br>
+
+            DNI <input type="text" name="dni"><br>
+
+            email <input type="text" name="email"><br>
+
+            <input type="submit" value="Enviar" name="enviar">
+
+        </form>
+
+    </body>
+</html>

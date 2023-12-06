@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+#nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+
+</style>
+
+<script type="text/javascript">
+
+
+
+function CuentaBancariaTipo (datoTitular, datoApellidos, datoSaldo) {
+
+this.nombreTitular = datoTitular;
+
+this.apellidosTitular = datoApellidos;
+
+this.saldo = datoSaldo;
+
+
+this.mostrarDatos = function () {
+
+                var msg = 'Los datos de la cuenta son Nombre: ' + this.nombreTitular;
+
+                msg = msg + '; Apellidos: ' + this.apellidosTitular + '; Saldo: ' + this.saldo;
+
+                alert(msg);
+
+                }
+
+}
+
+function cuentaBancaria() {
+
+			var Titular = prompt("Introduzca el nombre del titular de la cuenta");
+
+			var Apellidos = prompt("Introduzca el apellido del titular de la cuenta");
+
+			var Saldo = prompt("Introduzca el saldo de la cuenta");
+
+var cuenta1 = new CuentaBancariaTipo (Titular, Apellidos, Saldo);
+
+cuenta1.mostrarDatos();
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="nodoRaiz" onclick="cuentaBancaria()"> Crear cuenta bancaria</div>
+
+</body></html>

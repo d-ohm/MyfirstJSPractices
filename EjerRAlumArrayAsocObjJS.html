@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><title>Ejemplo aprenderaprogramar.com</title><meta charset="utf-8">
+<script type="text/javascript">
+function operaciones(){
+  this.suma = plus;
+  this.resta = minus;
+  this.mult = multi;
+  this.division = divi;
+}
+
+function plus(x,y){ return x + y }
+function minus(x,y){ return x - y }
+function multi(x,y){ return x * y }
+function divi(x,y){ return x/y }
+
+function calcular(x, y, operacion){
+var op = new operaciones();
+if(operacion == '+'){return op.suma(x, y); }
+else if(operacion == '-'){return op.resta(x, y);}
+else if(operacion == '*'){return op.mult(x, y);}
+else{return op.division(x, y);}
+}
+
+function ejemploObjetos() {
+alert ('Resultado de calcular(3, 15, \'+\') es '+ calcular(3,15, '+'));
+alert ('Resultado de calcular(3, 15, \'-\') es '+ calcular(3,15, '-'));
+alert ('Resultado de calcular(3, 15, \'*\') es '+ calcular(3,15, '*'));
+alert ('Resultado de calcular(3, 15, \'/\') es '+ calcular(3,15, '/'));
+}
+</script>
+</head>
+<body><div id="cabecera"><h2>Cursos aprenderaprogramar.com</h2><h3>Ejemplos JavaScript</h3></div>
+<div style="color:blue;" id ="pulsador" onclick="ejemploObjetos()"> Probar </div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+/*h1 {text-align: center;}*/
+
+div {border-style:solid; margin: 100px; align-items: center; height: 400px; width: 400px;  display: flex; background-color: yellow; border-radius: 5px; font-size: 250px; text-align: center; justify-content: center;}
+
+</style>
+
+<script type="text/javascript">
+
+function mostrarTecla(TecEv) {
+var	LetraNum = String.fromCharCode(TecEv.which);
+
+if (TecEv.which!=0 && TecEv.which!=13) {
+
+	tecla.innerHTML = LetraNum;
+
+	}
+}
+
+function borrarTecla(TecEv) {
+
+	tecla.innerHTML = "";
+}
+
+
+window.onload = function () {
+
+document.onkeypress = mostrarTecla;
+document.onkeydown = borrarTecla; 
+}
+
+</script>
+
+</head>
+
+<body>
+	<h1>Pulsa una tecla</h1>
+
+        <div id="tecla"> </div>
+   
+
+
+
+</body></html>

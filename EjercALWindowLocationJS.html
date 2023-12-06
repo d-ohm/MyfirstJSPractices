@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Ejemplo aprenderaprogramar.com</title>
+		<meta charset="utf-8">
+
+<script type="text/javascript">
+	contador=5;
+function ejemplo()
+{
+	var msg="Hemos cambiado de ubicación esta página.<br/> En breves momentos será redireccionado…"
+	document.all.pizarra.innerHTML=msg;
+	
+		var t = setInterval(function(){cronometro()},1000);
+		
+	
+}
+function cronometro()
+{
+	if (contador>0)
+	{
+		msg=contador;
+		contador=contador-1
+		document.all.pizarra2.innerHTML=msg;
+	}	
+	else
+	{
+		clearInterval(cronometro);
+		window.location.assign('http://aprenderaprogramar.com');
+	}
+}
+</script>
+<style type="text/css">
+	body{background-color:yellow;}
+  h1,h2,h3{
+		text-align:center;
+		margin:0;
+		padding:0;
+		color:black;
+		
+		}
+		
+			#pizarra,#pizarra2 
+			{
+				text-align:center;
+				padding:5px;
+				overflow:hidden;
+				float:left;
+				margin-left:400px;
+				margin-top:100px;
+				color:red;
+				}
+				#pizarra
+					{
+						font-size:30px;
+						border-radius:25px 25px;
+						background-color:white;
+						border:groove red 3px;
+						padding:10px;
+					}
+				#pizarra2
+					{
+						clear:both;
+						margin-left:650px;
+						margin-top:10px;
+						float:left;
+						font-size:200px
+						
+					}
+		
+</style>
+</head>
+
+<body onload="ejemplo()">
+	<div id="cabecera">
+		
+		<h1>Ejercicio JavaScript CU01171E</h1>
+		<h2>Rediccionamiento de pagina con cuenta atras</h2>
+		<div id="pizarra"></div>
+		<div id="pizarra2"></div>
+	</div>
+</body></html>
+

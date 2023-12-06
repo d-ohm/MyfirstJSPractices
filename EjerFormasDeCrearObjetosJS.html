@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+
+
+</style>
+
+<script type="text/javascript">
+
+function medico (nombre, personasCuradas, especialidad) {
+
+			this.nombreMedico = nombre;
+
+			this.curadas = personasCuradas;
+
+			this.especialidadMedico = especialidad;
+
+			this.curarPersonas = curarPersonas;
+
+
+	this.mostrarDatos = function() {
+	
+	var msg = "El médico se llama "+this.nombreMedico+", su especialidad es "+this.especialidadMedico+" y lleva curadas "+this.curadas+" personas.";
+ 		
+	// var msg = "El médico se llama "+this.nombreMedico+", su especialidad es "+this.especialidadMedico;
+
+	// msg = msg + " y lleva curadas "+this.curadas+" personas.";
+	
+
+	alert(msg);
+
+	}
+}
+
+function curarPersonas() {
+
+this.curadas = Math.round(Math.random() * this.curadas + 100);
+
+}
+
+
+function objUnMedico() {
+
+	var datoNombre = prompt("Ingrese nombre del medico");
+
+	var datoEspecialidad = prompt("Ingrese la especialidad");
+
+	var datoPersonasCuradas = prompt("Ingrese cantidad de personas curadas el dia de hoy");
+	datoPersonasCuradas = Number(datoPersonasCuradas);
+
+
+	var unMedico = new medico (datoNombre, datoPersonasCuradas, datoEspecialidad);
+
+	// unMedico.mostrarDatos();
+
+	unMedico.curarPersonas();
+	unMedico.mostrarDatos();
+	
+
+}
+function objOtroMedico() {
+
+	var datoNombre2 = prompt("Ingrese nombre del medico");
+
+	var datoEspecialidad2 = prompt("Ingrese la especialidad");
+
+	var datoPersonasCuradas2 = prompt("Ingrese cantidad de personas curadas el dia de hoy");
+	datoPersonasCuradas2 = Number(datoPersonasCuradas2);
+
+
+	var otroMedico = new medico (datoNombre2, datoPersonasCuradas2, datoEspecialidad2);
+
+	// otroMedico.mostrarDatos();
+
+	otroMedico.curarPersonas();
+	otroMedico.mostrarDatos();
+	
+
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="objUnMedico()">Pulsa aquí para buscar cantidad de personas curadas por un médico</div>
+
+<div class="nodoRaiz" onclick="objOtroMedico()">Pulsa aquí para buscar cantidad de personas curadas por otro médico</div>
+
+
+
+</body></html>

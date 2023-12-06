@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contador</title><meta charset="utf-8">
+<script type="text/javascript"> 
+
+function contador(){
+
+var fecha = new Date();
+
+
+		// fecha.setFullYear(2019);
+		// fecha.setDate(16);
+		// fecha.setMonth(6);
+
+var año = fecha.getFullYear();
+var hoy = fecha.getDate();
+var dia = fecha.getDay();
+var mes = fecha.getMonth();
+
+var diaM = [0,1,2,3,4,5,6];
+var diaH = diaM[dia];
+var mesD = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+
+// var mesH = mesD[hoy]
+
+alert('diaH: '+diaH+'\n dia: '+dia)
+
+	
+
+		contadorexterno:do{
+			contadorinterno:for (var i=(hoy-1);i>=0;i--) {
+					switch (diaH) {
+  case 0:
+    d = "Do";
+    break;
+  case 1:
+    d = "Lu";
+    break;
+  case 2:
+     d = "Ma";
+    break;
+  case 3:
+    d = "Mi";
+    break;
+  case 4:
+    d = "Ju";
+    break;
+  case 5:
+    d = "Vi";
+    break;
+  case 6:
+    d = "Sa";
+}
+		alert('fecha: '+mesD[i]+'\n dia: '+d);
+	if(mesD[i] ==1){alert('fecha: ..'+mesD[i] +'\n dia: ..'+d)}
+				if(diaH==0){diaH+=7;}
+				diaH-=1;
+					}
+
+
+		}while(mesD>0); 
+}
+</script>
+</head>
+
+<body>
+	<p style="background-color: darkblue; color: white; font-size: 200%; width: 20%" onclick="contador()">
+		hacer click acá
+		
+	</p>
+</body>
+</html>

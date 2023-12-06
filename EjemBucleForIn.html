@@ -1,0 +1,47 @@
+<html>
+<head>
+<title> Portal web - aprenderaprogramar.com </title> <meta charset="utf-8">
+<style type="text/css">
+	#contenedor {width:285px;margin: 40px auto; overflow:hidden;}
+
+#nuevoboton {padding:15px; width: 90px; clear: both;
+
+margin: 10px; cursor: pointer; color: white; border-radius: 40px; background: rgb(202, 60, 10);}
+
+ #nuevoboton:hover {background: rgb(66, 184, 221);}
+</style>
+<script type="text/javascript">
+
+	function ejemploForIn() {
+
+var dato = [2, 6, 5, 1, 18, 44];
+
+var msgForNormal = '';
+
+var msgForIn = '';
+
+//For normal
+
+for (var i=0; i<dato.length; i++) { msgForNormal = msgForNormal + dato[i] + ' - '; }
+
+//For in
+
+for (i in dato) { msgForIn = msgForIn + dato[i] + ' - '; }
+
+alert ('msgForNormal contiene ' + msgForNormal + ' y msgForIn contiene '+ msgForIn);
+
+}
+
+</script>
+</head>
+<body>
+<div id="contenedor">
+<p>Aquí un párrafo de texto situado antes de la imagen, dentro de un div contenedor</p>
+<img src="http://i.imgur.com/afC0L.jpg" alt="Notepad++" title="Notepad++, un útil editor de texto">
+
+<div id="nuevoboton" onclick="ejemploForIn()"> Nuevo Boton</div>
+
+
+</div>
+</body>
+</html>

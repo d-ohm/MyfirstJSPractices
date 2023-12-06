@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html><head> <title>Curso JavaScript aprenderaprogramar.com</title><meta charset="utf-8">
+
+<style type="text/css">
+
+body {font-family: sans-serif; text-align:center; }
+
+.nodoRaiz {border-style:solid; margin: 30px; padding:25px; display:inline-block; background-color: yellow; border-radius: 5px;}
+</style>
+
+<script type="text/javascript">
+
+function regEx() {
+
+var miExpReg = /^[A-C]\w+\ses\s\w+/;
+
+var a = "Juan es guapo"
+
+var b = "Adriano no es feo"
+
+var c = "Adriano deja de ser guapo"
+
+var d = "Adriano ya es guapo"
+
+var e = "No es ahora"
+
+var f = "Ahora es no"
+
+var g = "Adriano es guapo"
+
+var msg = 'Patrón: /^[A-C]\w+\ses\s\w+/ \n';
+
+msg = msg + '¿Contiene "a" el patrón? : '+ miExpReg.test(a) +'\n';
+msg = msg + '¿Contiene "b" el patrón? : '+ miExpReg.test(b) +'\n';
+msg = msg + '¿Contiene "c" el patrón? : '+ miExpReg.test(c) +'\n';
+msg = msg + '¿Contiene "d" el patrón? : '+ miExpReg.test(d) +'\n';
+msg = msg + '¿Contiene "e" el patrón? : '+ miExpReg.test(e) +'\n';
+msg = msg + '¿Contiene "f" el patrón? : '+ miExpReg.test(f) +'\n';
+msg = msg + '¿Contiene "g" el patrón? : '+ miExpReg.test(g) +'\n';
+
+
+
+alert(msg);
+
+}
+
+/* a)  Juan es guapo
+
+b) Adriano no es feo
+
+c) Adriano deja de ser guapo
+
+d) Adriano ya es guapo
+
+e) No es ahora
+
+f) Ahora es no
+
+g) Adriano es guapo*/
+
+</script>
+
+</head>
+
+<body>
+
+<div class="nodoRaiz" onclick="regEx()">Pulsa acá </div>
+
+</body></html>

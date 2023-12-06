@@ -1,0 +1,40 @@
+<html> 
+<head>
+	
+	<title>JS Ej9</title>
+	<meta charset="utf-8">
+	<style>
+		.boton{padding:15px; width: 200px;  text-align:center; clear:both; color: white; border-radius: 40px; background: rgb(202, 60, 60);}
+	</style>
+
+	<script type="text/javascript">
+		
+		function mostrarLetra() { 
+
+var palabra= prompt("Introduzca una palabra");
+var letra = new Array();
+var msg = [];
+var i=-1;
+var tamPalabra = palabra.length - 1;
+
+while(i<tamPalabra) {
+i++;
+letra[i]=palabra.charAt(i);
+msg[i] = '\n Letra '+(i+1)+': ' + letra[i];}
+
+alert(msg);
+
+}
+
+	</script>
+
+</head>
+<body>
+
+	<h3 class="boton"  onclick="mostrarLetra()">
+
+	Click aqui! </h3>
+
+</body>
+
+</html>

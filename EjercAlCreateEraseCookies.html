@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script>
+window.onload= function (){
+   
+    var start = document.getElementById('empezar').addEventListener('click',crear2Cookies);
+   
+}
+
+function crear2Cookies(){
+    eliminarCookies();
+    createCookie('cookieNombreUsuario','Alberto',1);
+    createCookie('cookieEdadUsuario',8,1);
+    mostrarTodasLasCookies();
+}
+
+ function eliminarCookies(){
+     var numeroCookies = document.cookie.split(';');
+     for(var i=0;i < numeroCookies.length;i++) {
+          eraseCookie(numeroCookies[i]);
+     }
+     
+ }
+   
+ function createCookie(name,value,days) {
+
+                if (days) {
+
+                               var date = new Date();
+
+                               date.setTime(date.getTime()+(days*24*60*60*1000));
+
+                               var expires = "; expires="+date.toGMTString();
+
+                }
+
+                else var expires = "";
+
+                document.cookie = name+"="+value+expires+"; path=/";
+
+}
+
+ function mostrarTodasLasCookies() {
+     
+                var numeroCookies = document.cookie.split(';');
+     
+                var msg = 'Hay '+numeroCookies.length+ ' cookies en el documento.\n';
+     
+                for(var i=0;i < numeroCookies.length;i++) { //Recorremos todas las cookies
+                   
+                    msg += 'cookie nº' +(i+1) + 'con nombre:' + numeroCookies[i].split('=',1)+ ' y valor:';
+                   
+                    var nombre =numeroCookies[i].split('=',1) + '=';
+                   
+					var valor = numeroCookies[i];
+                   
+					msg += valor.substring(nombre.length,valor.length) + '\n';
+                   
+                }
+     
+        alert (msg);   
+     
+}
+
+function eraseCookie(name) { createCookie(name,"",-1); }
+   
+</script>
+</head>
+<body>
+<button id="empezar">Crear 2 cookies</button>
+</body>
+</html> 
